@@ -227,8 +227,8 @@ const CalculadoraValorHora = () => {
     hero: {
       h1: tx(lang, 'Quanto você deveria cobrar por hora?', 'What should you charge per hour?'),
       sub: tx(lang,
-        'A calculadora gratuita que usa seus custos reais para descobrir seu valor/hora ideal — e ainda qualifica se você está cobrando abaixo do mercado.',
-        "The free calculator that uses your real costs to find your ideal hourly rate — and shows if you're undercharging."),
+        'A calculadora gratuita que usa seus custos reais para descobrir seu valor/hora ideal, e ainda qualifica se você está cobrando abaixo do mercado.',
+        "The free calculator that uses your real costs to find your ideal hourly rate, and shows if you're undercharging."),
     },
     hook: tx(lang,
       `Você cobra ${symbol}80 por hora porque "parece justo". Mas justo para quem? Sem contar seus custos fixos, horas não produtivas e margem de lucro, você provavelmente está trabalhando no prejuízo sem perceber. Esta calculadora muda isso em 2 minutos.`,
@@ -250,8 +250,8 @@ const CalculadoraValorHora = () => {
       daysPerMonth: tx(lang, 'Quantos dias por mês?', 'How many days per month?'),
       billable: tx(lang, 'Quantos % do seu tempo é realmente faturável?', 'What % of your time is actually billable?'),
       billableHelp: tx(lang,
-        'Desconte reuniões, prospecção, admin — em média 30 a 40% do tempo é não faturável.',
-        'Discount meetings, prospecting, admin — on average 30 to 40% is non-billable.'),
+        'Desconte reuniões, prospecção, admin, em média 30 a 40% do tempo é não faturável.',
+        'Discount meetings, prospecting, admin, on average 30 to 40% is non-billable.'),
       profit: tx(lang, 'Quanto você quer lucrar por mês além dos custos?', 'How much profit do you want per month beyond costs?'),
       currentRate: tx(lang, 'Quanto você cobra atualmente por hora? (opcional)', 'What do you charge per hour today? (optional)'),
       recurringQ: tx(lang, 'Você tem clientes com contratos mensais recorrentes?', 'Do you have clients with recurring monthly contracts?'),
@@ -504,8 +504,8 @@ const CalculadoraValorHora = () => {
           </h3>
           <p className="text-gray-300 leading-relaxed">
             {tx(lang,
-              `Quando você fecha um contrato de social media por ${symbol}1.500/mês, parece bom. Mas se você não sabe exatamente quantas horas está dedicando a esse cliente, em 6 meses pode descobrir que está ganhando ${symbol}20/hora — abaixo do salário mínimo.`,
-              `When you close a social media contract for ${symbol}1,500/month, it looks great. But if you don't know exactly how many hours you're spending on that client, in 6 months you may find you're making ${symbol}20/hour — below minimum wage.`)}
+              `Quando você fecha um contrato de social media por ${symbol}1.500/mês, parece bom. Mas se você não sabe exatamente quantas horas está dedicando a esse cliente, em 6 meses pode descobrir que está ganhando ${symbol}20/hora, abaixo do salário mínimo.`,
+              `When you close a social media contract for ${symbol}1,500/month, it looks great. But if you don't know exactly how many hours you're spending on that client, in 6 months you may find you're making ${symbol}20/hour, below minimum wage.`)}
           </p>
           <p className="text-gray-300 leading-relaxed mt-3">
             {tx(lang,
@@ -564,8 +564,8 @@ const CalculadoraValorHora = () => {
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8 relative">
               {tx(lang,
-                'A Eluvie controla todos os seus contratos e recebimentos em um único painel — para você parar de adivinhar e começar a crescer.',
-                'Eluvie tracks all your contracts and payments in one dashboard — so you can stop guessing and start growing.')}
+                'A Eluvie controla todos os seus contratos e recebimentos em um único painel, para você parar de adivinhar e começar a crescer.',
+                'Eluvie tracks all your contracts and payments in one dashboard, so you can stop guessing and start growing.')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
               <Button asChild variant="brand" size="lg">
@@ -648,7 +648,7 @@ const getFaqs = (lang: Lang) => {
       { q: 'Como calcular o valor da hora trabalhada?', a: 'Some todos os seus custos fixos mensais (aluguel, ferramentas, impostos), some a margem de lucro que deseja, e divida pelo número de horas faturáveis no mês. Horas faturáveis ≠ horas trabalhadas: tipicamente 60-70% do total.' },
       { q: 'Quanto cobrar por hora como freelancer?', a: 'Não existe valor universal. O valor correto é aquele que cobre seus custos reais, paga sua margem de lucro e respeita as horas que você realmente consegue faturar por mês. Use a calculadora acima para chegar ao seu número exato.' },
       { q: 'Como saber se estou cobrando muito barato?', a: 'Se você trabalha mais de 40h por semana e ainda assim não sobra dinheiro no fim do mês, ou se sua hora atual é menor do que o valor calculado com base nos seus custos, você está cobrando abaixo do mercado.' },
-      { q: 'Vale a pena ter cliente com contrato mensal fixo?', a: 'Sim, recorrência traz previsibilidade — mas só se for bem precificada. Um contrato mensal mal calculado pode te trancar em horas a fio por um valor abaixo do ideal. Sempre meça quantas horas o cliente consome.' },
+      { q: 'Vale a pena ter cliente com contrato mensal fixo?', a: 'Sim, recorrência traz previsibilidade, mas só se for bem precificada. Um contrato mensal mal calculado pode te trancar em horas a fio por um valor abaixo do ideal. Sempre meça quantas horas o cliente consome.' },
       { q: 'Como reajustar meus preços sem perder clientes?', a: 'Reajuste gradualmente, comunique com 30 dias de antecedência, justifique pelo valor entregue (não pelos seus custos) e ofereça uma janela de transição. Clientes que valorizam ficam.' },
       { q: 'Qual a diferença entre horas trabalhadas e horas faturáveis?', a: 'Horas trabalhadas incluem reuniões, prospecção, e-mails, admin. Horas faturáveis são apenas aquelas que vão diretamente para um projeto pago. Em média, apenas 60-70% do tempo é faturável.' },
       { q: 'Como controlar quanto cada cliente me paga por mês?', a: 'O ideal é centralizar todos os contratos em uma só ferramenta com lançamentos automáticos. A Eluvie faz isso: conecta seus contratos recorrentes ao seu financeiro e mostra automaticamente o quanto cada cliente representa no seu faturamento mensal.' },
@@ -658,7 +658,7 @@ const getFaqs = (lang: Lang) => {
     { q: 'How do I calculate my hourly rate?', a: 'Add all your fixed monthly costs (rent, tools, taxes), add the profit margin you want, and divide by your billable hours per month. Billable hours ≠ hours worked: typically 60-70% of the total.' },
     { q: 'How much should I charge per hour as a freelancer?', a: "There's no universal number. The right rate covers your real costs, pays your profit margin, and respects the hours you actually bill per month. Use the calculator above to find your exact number." },
     { q: "How do I know if I'm charging too little?", a: "If you work over 40 hours a week and still have no money left at month-end, or your current rate is below what your costs require, you're charging below market." },
-    { q: 'Are recurring monthly contracts worth it?', a: 'Yes — recurring revenue brings predictability, but only if priced well. A poorly calculated monthly contract can lock you into endless hours for less than ideal pay. Always track hours per client.' },
+    { q: 'Are recurring monthly contracts worth it?', a: 'Yes, recurring revenue brings predictability, but only if priced well. A poorly calculated monthly contract can lock you into endless hours for less than ideal pay. Always track hours per client.' },
     { q: 'How can I raise prices without losing clients?', a: 'Raise gradually, communicate 30 days ahead, justify by value delivered (not your costs), and offer a transition window. Clients who value you stay.' },
     { q: 'What is the difference between hours worked and billable hours?', a: 'Hours worked include meetings, prospecting, emails, admin. Billable hours are only those that go directly into a paid project. On average, only 60-70% of time is billable.' },
     { q: 'How do I track how much each client pays me monthly?', a: 'The ideal approach is to centralize all contracts in one tool with automatic entries. Eluvie does exactly this: it connects your recurring contracts to your financials and automatically shows how much each client represents in your monthly revenue.' },

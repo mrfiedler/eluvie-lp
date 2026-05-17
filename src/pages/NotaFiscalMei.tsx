@@ -23,7 +23,7 @@ type Recurring = 'no' | 'yes' | '';
 const FAQS = [
   {
     q: 'MEI é obrigado a emitir nota fiscal?',
-    a: 'O MEI é obrigado a emitir nota fiscal quando o cliente é pessoa jurídica (CNPJ). Para pessoa física, a emissão é opcional — mas recomendada para manter o controle do faturamento e comprovar receitas.',
+    a: 'O MEI é obrigado a emitir nota fiscal quando o cliente é pessoa jurídica (CNPJ). Para pessoa física, a emissão é opcional, mas recomendada para manter o controle do faturamento e comprovar receitas.',
   },
   {
     q: 'Como emitir nota fiscal MEI pelo celular?',
@@ -39,7 +39,7 @@ const FAQS = [
   },
   {
     q: 'Como emitir nota fiscal MEI pelo Gov.br?',
-    a: 'O Gov.br não emite nota fiscal diretamente — a emissão é municipal, pelo portal da prefeitura. O Gov.br serve para acessar dados do CNPJ, declarar o DASN-SIMEI e gerenciar sua conta MEI.',
+    a: 'O Gov.br não emite nota fiscal diretamente, a emissão é municipal, pelo portal da prefeitura. O Gov.br serve para acessar dados do CNPJ, declarar o DASN-SIMEI e gerenciar sua conta MEI.',
   },
   {
     q: 'MEI pode ter mais de um cliente recorrente?',
@@ -55,7 +55,7 @@ const FAQS = [
   },
   {
     q: 'MEI precisa de contador para emitir nota fiscal?',
-    a: 'Não. Um dos benefícios do MEI é justamente a simplicidade — você mesmo emite as notas pelo portal da prefeitura. Contador é opcional e útil principalmente para quem fatura próximo do teto.',
+    a: 'Não. Um dos benefícios do MEI é justamente a simplicidade, você mesmo emite as notas pelo portal da prefeitura. Contador é opcional e útil principalmente para quem fatura próximo do teto.',
   },
   {
     q: 'Como saber qual código de serviço usar na nota fiscal?',
@@ -64,13 +64,13 @@ const FAQS = [
 ];
 
 const SERVICE_CODES: { servico: string; codigo: string }[] = [
-  { servico: 'Design gráfico', codigo: 'LC 116 — 23.01 / CNAE 7410-2/02' },
-  { servico: 'Social media', codigo: 'LC 116 — 17.06 / CNAE 7319-0/03' },
-  { servico: 'Desenvolvimento web', codigo: 'LC 116 — 1.04 / CNAE 6201-5/01' },
-  { servico: 'Produção de conteúdo', codigo: 'LC 116 — 17.02 / CNAE 7490-1/99' },
-  { servico: 'Consultoria de marketing', codigo: 'LC 116 — 17.01 / CNAE 7020-4/00' },
-  { servico: 'Fotografia', codigo: 'LC 116 — 13.03 / CNAE 7420-0/01' },
-  { servico: 'Edição de vídeo', codigo: 'LC 116 — 13.02 / CNAE 5912-0/01' },
+  { servico: 'Design gráfico', codigo: 'LC 116, 23.01 / CNAE 7410-2/02' },
+  { servico: 'Social media', codigo: 'LC 116, 17.06 / CNAE 7319-0/03' },
+  { servico: 'Desenvolvimento web', codigo: 'LC 116, 1.04 / CNAE 6201-5/01' },
+  { servico: 'Produção de conteúdo', codigo: 'LC 116, 17.02 / CNAE 7490-1/99' },
+  { servico: 'Consultoria de marketing', codigo: 'LC 116, 17.01 / CNAE 7020-4/00' },
+  { servico: 'Fotografia', codigo: 'LC 116, 13.03 / CNAE 7420-0/01' },
+  { servico: 'Edição de vídeo', codigo: 'LC 116, 13.02 / CNAE 5912-0/01' },
 ];
 
 const NotaFiscalMei = () => {
@@ -183,7 +183,7 @@ const NotaFiscalMei = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            O guia completo que nenhum contador te deu — com ferramenta grátis para descobrir exatamente qual NF você precisa emitir.
+            O guia completo que nenhum contador te deu, com ferramenta grátis para descobrir exatamente qual NF você precisa emitir.
           </p>
         </div>
       </section>
@@ -194,7 +194,7 @@ const NotaFiscalMei = () => {
           <div className="bg-[#222] border border-gray-800 rounded-2xl p-6 md:p-8 text-gray-300 leading-relaxed text-base md:text-lg">
             Você fechou o projeto, o cliente pediu nota, e você travou. MEI pode emitir NF? Para pessoa jurídica? E para pessoa física?
             <br /><br />
-            Esse guia responde tudo isso — e no final, uma ferramenta gratuita descobre exatamente qual nota você precisa emitir em menos de 1 minuto.
+            Esse guia responde tudo isso, e no final, uma ferramenta gratuita descobre exatamente qual nota você precisa emitir em menos de 1 minuto.
           </div>
         </div>
       </section>
@@ -231,7 +231,7 @@ const NotaFiscalMei = () => {
 
           <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">MEI tem limite para emitir notas?</h3>
           <p className="text-gray-300 leading-relaxed">
-            Não existe limite de quantidade de notas, mas existe um <strong className="text-white">teto anual de faturamento de R$81.000</strong>. Ultrapassar significa migrar para Microempresa (ME) com mudança de regime tributário. Controlar esse limite manualmente — em planilhas ou na cabeça — é arriscado: muitos MEIs só descobrem que estouraram em janeiro do ano seguinte, quando já é tarde.
+            Não existe limite de quantidade de notas, mas existe um <strong className="text-white">teto anual de faturamento de R$81.000</strong>. Ultrapassar significa migrar para Microempresa (ME) com mudança de regime tributário. Controlar esse limite manualmente, em planilhas ou na cabeça, é arriscado: muitos MEIs só descobrem que estouraram em janeiro do ano seguinte, quando já é tarde.
           </p>
 
           <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">E quando o projeto é recorrente? Social media, tráfego, design mensal?</h3>
@@ -239,7 +239,7 @@ const NotaFiscalMei = () => {
             Emitir uma nota pontual é simples. O problema começa quando você tem 8 clientes recorrentes, cada um com data diferente, valor diferente, e você precisa lembrar de emitir todo mês.
           </p>
           <p className="text-gray-300 leading-relaxed mt-3">
-            É aqui que a maioria dos MEIs perde dinheiro — não por não saber emitir, mas por <strong className="text-white">esquecer, atrasar, ou perder o controle</strong> do que já foi faturado.
+            É aqui que a maioria dos MEIs perde dinheiro, não por não saber emitir, mas por <strong className="text-white">esquecer, atrasar, ou perder o controle</strong> do que já foi faturado.
           </p>
           <p className="text-gray-300 leading-relaxed mt-3">
             A Eluvie resolve exatamente isso: você cadastra o contrato recorrente uma vez, e a plataforma controla automaticamente os lançamentos mensais, vencimentos e status de pagamento de cada cliente.
@@ -262,7 +262,7 @@ const NotaFiscalMei = () => {
 
           <h3 className="text-2xl font-semibold mt-12 mb-4 text-white">Qual código de serviço usar na nota fiscal MEI?</h3>
           <p className="text-gray-300 leading-relaxed mb-4">
-            Abaixo, os códigos mais comuns para o público criativo. Use como referência — o código exato depende da atividade principal cadastrada no seu CCMEI.
+            Abaixo, os códigos mais comuns para o público criativo. Use como referência, o código exato depende da atividade principal cadastrada no seu CCMEI.
           </p>
           <div className="overflow-x-auto rounded-xl border border-gray-800">
             <table className="w-full text-sm">
@@ -390,7 +390,7 @@ const NotaFiscalMei = () => {
                     <span className="text-sm font-semibold uppercase tracking-wide">Seu resultado</span>
                   </div>
                   <p className="text-gray-200 leading-relaxed mb-4">
-                    Você tem uma operação recorrente que precisa de controle real. Emitir nota é só o começo — o que você realmente precisa é saber exatamente quanto vai entrar todo mês, quem já pagou e quem está atrasado.
+                    Você tem uma operação recorrente que precisa de controle real. Emitir nota é só o começo, o que você realmente precisa é saber exatamente quanto vai entrar todo mês, quem já pagou e quem está atrasado.
                   </p>
                   <Button asChild variant="brand" size="sm">
                     <a href={whatsappHot} target="_blank" rel="noopener noreferrer">
@@ -439,7 +439,7 @@ const NotaFiscalMei = () => {
               Você já sabe emitir nota. Agora precisa controlar o que entra.
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8 relative">
-              A Eluvie organiza seus clientes, contratos e faturamento recorrente em um único lugar — para você parar de gerenciar no papel e começar a crescer de verdade.
+              A Eluvie organiza seus clientes, contratos e faturamento recorrente em um único lugar, para você parar de gerenciar no papel e começar a crescer de verdade.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
               <Button asChild variant="brand" size="lg">
