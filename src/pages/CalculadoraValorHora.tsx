@@ -555,7 +555,7 @@ const CalculadoraValorHora = () => {
       <section className="px-4 md:px-6 pb-24">
         <div className="container mx-auto max-w-5xl">
           <div className="rounded-3xl p-8 md:p-14 text-center relative overflow-hidden"
-               style={{ background: 'linear-gradient(135deg, hsl(var(--brand-violet) / 0.15), hsl(var(--brand-purple) / 0.10), hsl(var(--brand-magenta) / 0.15))' }}>
+               style={{ background: 'linear-gradient(135deg, rgba(172,46,232,0.18), rgba(142,96,229,0.12), rgba(214,78,194,0.18))' }}>
             <div className="absolute inset-0 border border-brand-violet/30 rounded-3xl pointer-events-none" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
               {tx(lang,
