@@ -72,6 +72,7 @@ const SEO = () => {
     // Pages that manage their own SEO metadata
     if (location.pathname.startsWith('/blog')) return;
     if (location.pathname.startsWith('/calculadora-valor-hora')) return;
+    if (location.pathname.startsWith('/nota-fiscal-mei')) return;
     const meta = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
     document.title = meta.title;

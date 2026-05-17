@@ -53,6 +53,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/nota-fiscal-mei" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  {language === 'en' ? 'MEI Invoice Guide' : 'Nota Fiscal MEI'}
+                </Link>
+              </li>
+              <li>
                 <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('privacy-nav')}
                 </Link>
