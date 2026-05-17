@@ -39,8 +39,9 @@ const PrecificarServicos = () => {
   const temp: Temp | null = (() => {
     if (!allAnswered) return null;
     if (q1 === 'recurring' || q4 === 'control') return 'hot';
-    if (q2 === 'gt15k' || q3 === 'gt15' || q3 === '9to15') return 'hot';
-    if (q1 === 'project' && (q2 === '1to5k' || q2 === '5to15k') && (q3 === '4to8' || q3 === '9to15')) return 'warm';
+    if (q2 === 'gt15k' || q3 === 'gt15') return 'hot';
+    if (q3 === '9to15') return 'hot';
+    if (q1 === 'project' && (q2 === '1to5k' || q2 === '5to15k') && q3 === '4to8') return 'warm';
     if (q4 === 'noprice' && (q2 === 'lt1k') && (q3 === '1to3')) return 'cold';
     if (q1 === 'hourly') return 'cold';
     return 'warm';

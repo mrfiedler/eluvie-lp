@@ -58,6 +58,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/precificar-servicos" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  {language === 'en' ? 'Pricing Your Services' : 'Precificar Serviços'}
+                </Link>
+              </li>
+              <li>
                 <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('privacy-nav')}
                 </Link>

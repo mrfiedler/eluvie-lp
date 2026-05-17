@@ -73,6 +73,7 @@ const SEO = () => {
     if (location.pathname.startsWith('/blog')) return;
     if (location.pathname.startsWith('/calculadora-valor-hora')) return;
     if (location.pathname.startsWith('/nota-fiscal-mei')) return;
+    if (location.pathname.startsWith('/precificar-servicos')) return;
     const meta = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
     document.title = meta.title;
