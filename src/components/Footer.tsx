@@ -48,6 +48,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/calculadora-valor-hora" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  {language === 'en' ? 'Hourly Rate Calculator' : 'Calculadora Valor/Hora'}
+                </Link>
+              </li>
+              <li>
                 <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('privacy-nav')}
                 </Link>
