@@ -13,6 +13,7 @@ import ComingSoon from "./pages/ComingSoon";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Diagnostic from "./pages/Diagnostic";
+import CalculadoraValorHora from "./pages/CalculadoraValorHora";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -41,6 +42,7 @@ const AppRoutes = () => (
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/diagnostic" element={<Diagnostic />} />
+      <Route path="/calculadora-valor-hora" element={<CalculadoraValorHora />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/admin" element={<ProtectedAdminRoute><Admin /></ProtectedAdminRoute>} />

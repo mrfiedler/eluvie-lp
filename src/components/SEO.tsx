@@ -69,8 +69,9 @@ const SEO = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Blog pages manage their own SEO metadata
+    // Pages that manage their own SEO metadata
     if (location.pathname.startsWith('/blog')) return;
+    if (location.pathname.startsWith('/calculadora-valor-hora')) return;
     const meta = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
     document.title = meta.title;
