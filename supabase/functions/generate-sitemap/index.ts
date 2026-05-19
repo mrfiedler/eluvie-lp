@@ -22,9 +22,9 @@ const STATIC_ROUTES: StaticRoute[] = [
   { ptPath: '/carreiras', enPath: '/careers', priority: '0.6', changefreq: 'monthly' },
   { ptPath: '/blog', enPath: '/blog', priority: '0.8', changefreq: 'weekly' },
   { ptPath: '/diagnostico', enPath: '/diagnostic', priority: '0.8', changefreq: 'monthly' },
-  { ptPath: '/calculadora-valor-hora', priority: '0.9', changefreq: 'monthly' },
+  { ptPath: '/calculadora-valor-hora', enPath: '/hourly-rate-calculator', priority: '0.9', changefreq: 'monthly' },
   { ptPath: '/nota-fiscal-mei', priority: '0.9', changefreq: 'monthly' },
-  { ptPath: '/precificar-servicos', priority: '0.9', changefreq: 'monthly' },
+  { ptPath: '/precificar-servicos', enPath: '/pricing-your-services', priority: '0.9', changefreq: 'monthly' },
   { ptPath: '/privacidade', enPath: '/privacy', priority: '0.6', changefreq: 'yearly' },
   { ptPath: '/termos', enPath: '/terms', priority: '0.6', changefreq: 'yearly' },
 ];
