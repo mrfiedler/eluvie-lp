@@ -24,7 +24,7 @@ type BlogPost = {
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { language, t } = useLanguage();
+  const { language, t, localPath } = useLanguage();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [related, setRelated] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -124,7 +124,7 @@ const BlogPostPage = () => {
           <div className="max-w-3xl mx-auto">
             <div className="mb-10">
               <Link
-                to="/blog"
+                to={localPath('/blog')}
                 className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-white"
               >
                 <ArrowLeft className="h-4 w-4" /> {t('blog-back')}

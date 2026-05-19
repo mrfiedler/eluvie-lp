@@ -16,7 +16,7 @@ interface FeatureCategory {
 }
 
 const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, localPath } = useLanguage();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
@@ -164,7 +164,7 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate("/coming-soon")}
+                onClick={() => navigate(localPath("/coming-soon"))}
               >
                 {t('get-started-free')}
               </Button>
@@ -188,7 +188,7 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate("/coming-soon")}
+                onClick={() => navigate(localPath("/coming-soon"))}
               >
                 {t('start-trial')}
               </Button>
@@ -218,7 +218,7 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate("/coming-soon")}
+                onClick={() => navigate(localPath("/coming-soon"))}
               >
                 {t('start-trial')}
               </Button>

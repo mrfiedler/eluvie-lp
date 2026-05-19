@@ -27,7 +27,7 @@ const formatMoney = (value: number, currency: Currency, language: string) => {
 };
 
 const SavingsCalculatorSection = () => {
-  const { language } = useLanguage();
+  const { language, localPath } = useLanguage();
   const navigate = useNavigate();
   const { currency } = useGeolocation();
   const isPt = language === 'pt-BR';
@@ -162,7 +162,7 @@ const SavingsCalculatorSection = () => {
 
             <div className="mt-8">
               <Button
-                onClick={() => navigate('/coming-soon')}
+                onClick={() => navigate(localPath('/coming-soon'))}
                 size="lg"
                 className="w-full text-base py-6 shadow-lg shadow-brand-violet/30"
               >

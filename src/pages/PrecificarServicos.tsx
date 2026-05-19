@@ -25,7 +25,7 @@ type Q3 = '1to3' | '4to8' | '9to15' | 'gt15' | '';
 type Q4 = 'noprice' | 'cheap' | 'lose' | 'control' | '';
 
 const PrecificarServicos = () => {
-  const { language } = useLanguage();
+  const { language, localPath } = useLanguage();
   const lang = language as Lang;
 
   const [q1, setQ1] = useState<Q1>('');
@@ -187,7 +187,7 @@ const PrecificarServicos = () => {
           </div>
           <p className="text-gray-300 leading-relaxed">
             {tx(lang, 'Quer calcular o seu agora?', 'Want to calculate yours now?')}{' '}
-            <Link to="/calculadora-valor-hora" className="text-brand-violet hover:text-brand-magenta underline">
+            <Link to={localPath('/calculadora-valor-hora')} className="text-brand-violet hover:text-brand-magenta underline">
               {tx(lang, 'Use a calculadora gratuita', 'Use the free calculator')}
             </Link>.
           </p>
@@ -318,7 +318,7 @@ const PrecificarServicos = () => {
                       "You're in the pricing structuring phase. Start with the hourly rate to build a solid base before closing larger projects.")}
                   </p>
                   <Button asChild variant="brand" size="sm">
-                    <Link to="/calculadora-valor-hora">
+                    <Link to={localPath('/calculadora-valor-hora')}>
                       <Calculator className="w-4 h-4 mr-2" />
                       {tx(lang, 'Calcular meu valor/hora agora', 'Calculate my hourly rate now')}
                     </Link>
@@ -333,7 +333,7 @@ const PrecificarServicos = () => {
                       'You already have volume to work with structured projects. The next step is to automatically control installments and deadlines of each project.')}
                   </p>
                   <Button asChild variant="brand" size="sm">
-                    <a href="/">
+                    <a href={localPath('/')}>
                       {tx(lang, 'Ver como a Eluvie controla seus projetos', 'See how Eluvie controls your projects')}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
@@ -369,13 +369,13 @@ const PrecificarServicos = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <ClusterCard
-              to="/calculadora-valor-hora"
+              to={localPath('/calculadora-valor-hora')}
               icon={<Calculator className="w-6 h-6" />}
               title={tx(lang, 'Calcule seu valor/hora agora', 'Calculate your hourly rate now')}
               desc={tx(lang, 'Ferramenta gratuita baseada nos seus custos reais.', 'Free tool based on your real costs.')}
             />
             <ClusterCard
-              to="/nota-fiscal-mei"
+              to={localPath('/nota-fiscal-mei')}
               icon={<FileText className="w-6 h-6" />}
               title={tx(lang, 'Como emitir nota fiscal sendo MEI', 'MEI invoice guide (Brazil)')}
               desc={tx(lang, 'Guia completo + ferramenta para descobrir qual NF emitir.', 'Complete guide + tool to find out which invoice to issue.')}

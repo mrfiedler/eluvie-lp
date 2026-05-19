@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
 const CTASection = () => {
-  const { t } = useLanguage();
+  const { t, localPath } = useLanguage();
   const navigate = useNavigate();
   
   return (
@@ -25,7 +25,7 @@ const CTASection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               className="w-full sm:w-auto text-base py-6 px-8 bg-brand-gradient hover:opacity-90 transition-opacity"
-              onClick={() => navigate("/coming-soon")}
+              onClick={() => navigate(localPath("/coming-soon"))}
             >
               {t('try-eluvie-free')}
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -33,7 +33,7 @@ const CTASection = () => {
             <Button 
               variant="brandSecondary"
               className="w-full sm:w-auto text-base py-6 px-8"
-              onClick={() => navigate("/coming-soon")}
+              onClick={() => navigate(localPath("/coming-soon"))}
             >
               {t('schedule-demo')}
             </Button>

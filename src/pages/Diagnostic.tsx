@@ -497,7 +497,7 @@ const Diagnostic = () => {
           </ButtonRow>
         );
       case 'declined':
-        return <Link to="/" className="block"><Button className="w-full bg-gradient-to-r from-[#ac2ee8] to-[#d64ec2] hover:opacity-90 min-h-[44px]">{tx(lang, 'Voltar para o início', 'Back to home')}</Button></Link>;
+        return <Link to={localPath('/')} className="block"><Button className="w-full bg-gradient-to-r from-[#ac2ee8] to-[#d64ec2] hover:opacity-90 min-h-[44px]">{tx(lang, 'Voltar para o início', 'Back to home')}</Button></Link>;
       case 'q1':
         return (
           <ButtonRow>
@@ -606,7 +606,7 @@ const Diagnostic = () => {
       case 'leadEmail':
         return <TextInputRow type="email" placeholder={tx(lang, 'voce@email.com (opcional)', 'you@email.com (optional)')} onSubmit={handleLeadEmail} allowEmpty />;
       case 'final':
-        return <Link to="/" className="block"><Button className="w-full min-h-[44px] bg-gradient-to-r from-[#ac2ee8] to-[#d64ec2] hover:opacity-90">{tx(lang, 'Conhecer a Eluvie', 'Explore Eluvie')}</Button></Link>;
+        return <Link to={localPath('/')} className="block"><Button className="w-full min-h-[44px] bg-gradient-to-r from-[#ac2ee8] to-[#d64ec2] hover:opacity-90">{tx(lang, 'Conhecer a Eluvie', 'Explore Eluvie')}</Button></Link>;
       default:
         return <div className="min-h-[44px]" />;
     }

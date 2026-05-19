@@ -7,14 +7,14 @@ import SuccessMessage from '@/components/SuccessMessage';
 import { convertToEmbedUrl } from '@/hooks/useVideoUrls';
 
 const ComingSoon = () => {
-  const { t, language } = useLanguage();
+  const { t, language, localPath } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const videoUrl = 'https://www.youtube.com/embed/c3m8qhBUaDE?start=10&autoplay=1&mute=1&loop=1&playlist=c3m8qhBUaDE&rel=0';
   
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-100 flex flex-col">
       <div className="flex items-center justify-between p-6 border-b border-gray-800">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to={localPath('/')} className="flex items-center gap-2">
           <img 
             src="/lovable-uploads/16dc7938-88ea-46da-9ce5-56e9b9900220.png"
             alt="Eluvie Logo" 
@@ -22,7 +22,7 @@ const ComingSoon = () => {
           />
         </Link>
         <Link 
-          to="/" 
+          to={localPath('/')} 
           className="text-sm text-gray-300 hover:text-white transition-colors"
         >
           {language === 'en' ? 'Back to Home' : 'Voltar para Início'}
