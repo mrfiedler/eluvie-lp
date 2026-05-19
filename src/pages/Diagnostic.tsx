@@ -69,7 +69,7 @@ const extractNumber = (input: string, lang: Lang): number | null => {
 };
 
 const Diagnostic = () => {
-  const { language, t, currency } = useLanguage();
+  const { language, t, currency, localPath } = useLanguage();
   const lang = language as Lang;
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
