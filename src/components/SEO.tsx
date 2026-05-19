@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage, stripEn } from '@/contexts/LanguageContext';
 import { useGeolocation } from '@/hooks/useGeolocation';
 
 const SITE_URL = 'https://www.eluvie.com';
@@ -69,11 +69,12 @@ const SEO = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Pages that manage their own SEO metadata
-    if (location.pathname.startsWith('/blog')) return;
-    if (location.pathname.startsWith('/calculadora-valor-hora')) return;
-    if (location.pathname.startsWith('/nota-fiscal-mei')) return;
-    if (location.pathname.startsWith('/precificar-servicos')) return;
+    // Pages that manage their own SEO metadata (also their /en variants).
+    const bare = stripEn(location.pathname);
+    if (bare.startsWith('/blog')) return;
+    if (bare.startsWith('/calculadora-valor-hora')) return;
+    if (bare.startsWith('/nota-fiscal-mei')) return;
+    if (bare.startsWith('/precificar-servicos')) return;
     const meta = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
     document.title = meta.title;
@@ -81,12 +82,17 @@ const SEO = () => {
     setMeta('meta[name="description"]', 'content', meta.description);
     setMeta('meta[name="keywords"]', 'content', meta.keywords);
 
+    // Per-language self-referencing URLs
+    const ptUrl = SITE_URL + (bare === '/' ? '/' : bare);
+    const enUrl = SITE_URL + '/en' + (bare === '/' ? '' : bare);
+    const selfUrl = language === 'en' ? enUrl : ptUrl;
+
     // Open Graph
     setMeta('meta[property="og:title"]', 'content', meta.title);
     setMeta('meta[property="og:description"]', 'content', meta.description);
     setMeta('meta[property="og:locale"]', 'content', meta.locale);
     setMeta('meta[property="og:type"]', 'content', 'website');
-    setMeta('meta[property="og:url"]', 'content', SITE_URL);
+    setMeta('meta[property="og:url"]', 'content', selfUrl);
     setMeta('meta[property="og:image"]', 'content', SITE_URL + OG_IMAGE);
 
     // Twitter
@@ -103,11 +109,11 @@ const SEO = () => {
     setMeta('meta[name="geo.region"]', 'content', geo.countryCode || meta.region);
     setMeta('meta[name="language"]', 'content', language);
 
-    // Canonical + hreflang alternates
-    setLink('canonical', SITE_URL);
-    setLink('alternate', SITE_URL, 'pt-BR');
-    setLink('alternate', SITE_URL, 'en');
-    setLink('alternate', SITE_URL, 'x-default');
+    // Canonical (self-referencing) + hreflang alternates between PT and EN.
+    setLink('canonical', selfUrl);
+    setLink('alternate', ptUrl, 'pt-BR');
+    setLink('alternate', enUrl, 'en');
+    setLink('alternate', ptUrl, 'x-default');
 
     // Structured data (Organization + SoftwareApplication with localized prices)
     const priceMap: Record<string, { standard: string; studio: string }> = {

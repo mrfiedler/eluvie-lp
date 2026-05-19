@@ -34,44 +34,60 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Inner routes (paths are relative; mounted under both '/' and '/en/').
+const InnerRoutes = () => (
+  <Routes>
+    <Route index element={<Index />} />
+    <Route path="about" element={<About />} />
+    <Route path="careers" element={<Careers />} />
+    <Route path="coming-soon" element={<ComingSoon />} />
+    <Route path="blog" element={<Blog />} />
+    <Route path="blog/:slug" element={<BlogPost />} />
+    <Route path="diagnostic" element={<Diagnostic />} />
+    <Route path="calculadora-valor-hora" element={<CalculadoraValorHora />} />
+    <Route path="nota-fiscal-mei" element={<NotaFiscalMei />} />
+    <Route path="precificar-servicos" element={<PrecificarServicos />} />
+    <Route path="privacy" element={<Privacy />} />
+    <Route path="terms" element={<Terms />} />
+    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
+
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-[#1a1a1a]" />}>
     <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/careers" element={<Careers />} />
-      <Route path="/coming-soon" element={<ComingSoon />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:slug" element={<BlogPost />} />
-      <Route path="/diagnostic" element={<Diagnostic />} />
-      <Route path="/calculadora-valor-hora" element={<CalculadoraValorHora />} />
-      <Route path="/nota-fiscal-mei" element={<NotaFiscalMei />} />
-      <Route path="/precificar-servicos" element={<PrecificarServicos />} />
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/admin" element={<ProtectedAdminRoute><Admin /></ProtectedAdminRoute>} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
+      {/* Admin stays language-agnostic */}
+      <Route
+        path="/admin"
+        element={
+          <ProtectedAdminRoute>
+            <Admin />
+          </ProtectedAdminRoute>
+        }
+      />
+      <Route path="/en/*" element={<InnerRoutes />} />
+      <Route path="/*" element={<InnerRoutes />} />
     </Routes>
   </Suspense>
 );
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <LanguageProvider>
             <SEO />
             <AppRoutes />
             <CookieConsent />
             <WhatsAppButton />
-          </BrowserRouter>
-        </TooltipProvider>
-      </AuthProvider>
-    </LanguageProvider>
+          </LanguageProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

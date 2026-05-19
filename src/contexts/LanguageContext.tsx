@@ -1,5 +1,6 @@
 
-import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Language } from '@/translations/types';
 import translations from '@/translations';
 import { useGeolocation, Currency } from '@/hooks/useGeolocation';
@@ -9,29 +10,65 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
   currency: Currency;
+  /** Prepend `/en` when the current language is English. Use for every internal Link/navigate. */
+  localPath: (path: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('pt-BR');
-  const [userOverride, setUserOverride] = useState(false);
+export const isEnPath = (pathname: string) =>
+  pathname === '/en' || pathname.startsWith('/en/');
+
+/** Strip the `/en` prefix to get the bare (PT-BR canonical) path. */
+export const stripEn = (pathname: string) => {
+  if (pathname === '/en') return '/';
+  if (pathname.startsWith('/en/')) return pathname.slice(3);
+  return pathname;
+};
+
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const geo = useGeolocation();
 
-  // Auto-set language from geolocation unless user manually changed it
+  const language: Language = isEnPath(location.pathname) ? 'en' : 'pt-BR';
+  const autoRedirectDone = useRef(false);
+
+  // First-visit auto-redirect: if the user lands on the bare PT root '/' and
+  // geolocation says they are non-BR, send them to '/en' once.
   useEffect(() => {
-    if (geo.loading || userOverride) return;
-    const autoLang: Language = geo.region === 'BR' ? 'pt-BR' : 'en';
-    setLanguageState(autoLang);
-  }, [geo.loading, geo.region, userOverride]);
+    if (geo.loading || autoRedirectDone.current) return;
+    autoRedirectDone.current = true;
+    if (
+      location.pathname === '/' &&
+      geo.region &&
+      geo.region !== 'BR'
+    ) {
+      navigate('/en' + location.search + location.hash, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [geo.loading, geo.region]);
+
+  const localPath = (path: string): string => {
+    if (!path) return language === 'en' ? '/en' : '/';
+    // External or hash-only links are returned as-is.
+    if (path.startsWith('http') || path.startsWith('#')) return path;
+    if (!path.startsWith('/')) path = '/' + path;
+    if (language === 'en') {
+      if (path === '/') return '/en';
+      return '/en' + path;
+    }
+    return path;
+  };
 
   const setLanguage = (lang: Language) => {
-    setUserOverride(true);
-    setLanguageState(lang);
+    const bare = stripEn(location.pathname);
+    const target =
+      lang === 'en' ? (bare === '/' ? '/en' : '/en' + bare) : bare;
+    navigate(target + location.search + location.hash);
   };
 
   const t = (key: string): string => {
-    // Currency-aware variant lookup: try `${key}__${currency}` first
     const variantKey = `${key}__${geo.currency}`;
     if (translations[variantKey]) {
       return translations[variantKey][language];
@@ -42,9 +79,11 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
     }
     return translations[key][language];
   };
-  
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, currency: geo.currency }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage, t, currency: geo.currency, localPath }}
+    >
       {children}
     </LanguageContext.Provider>
   );

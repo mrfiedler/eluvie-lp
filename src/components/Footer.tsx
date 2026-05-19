@@ -10,13 +10,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const Footer = () => {
-  const { t, language, setLanguage } = useLanguage();
+  const { t, language, setLanguage, localPath } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
 
   const scrollToSection = (id: string) => {
-    if (location.pathname !== '/') {
-      navigate(`/#${id}`);
+    const home = localPath('/');
+    if (location.pathname !== home) {
+      navigate(`${home}#${id}`);
       return;
     }
     const element = document.getElementById(id);
@@ -33,27 +34,27 @@ const Footer = () => {
             <h3 className="font-medium text-white mb-4">{t('company')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to={localPath('/about')} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('about')}
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to={localPath('/blog')} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('blog-nav')}
                 </Link>
               </li>
               <li>
-                <Link to="/diagnostic" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to={localPath('/diagnostic')} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('diagnostic-nav')}
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to={localPath('/privacy')} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('privacy-nav')}
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to={localPath('/terms')} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {t('terms-nav')}
                 </Link>
               </li>
@@ -127,7 +128,7 @@ const Footer = () => {
           
           <div className="col-span-2 md:col-span-2">
             <div className="flex space-x-4 mb-4">
-              <Link to="/" className="flex items-center">
+              <Link to={localPath('/')} className="flex items-center">
                 <img 
                   src="/lovable-uploads/16dc7938-88ea-46da-9ce5-56e9b9900220.png"
                   alt="Eluvie Logo" 

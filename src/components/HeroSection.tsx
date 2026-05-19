@@ -8,7 +8,7 @@ import avatar2 from '@/assets/avatar-2.png';
 import avatar3 from '@/assets/avatar-3.png';
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, localPath } = useLanguage();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   
@@ -38,7 +38,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 className="flex items-center justify-center gap-2 text-base py-4 sm:py-6 px-6 sm:px-8 bg-brand-gradient hover:opacity-90 transition-opacity border-none w-full sm:w-auto" 
-                onClick={() => navigate("/coming-soon")}
+                onClick={() => navigate(localPath("/coming-soon"))}
               >
                 {t('start-free')}
                 <ArrowRight className="h-5 w-5" />

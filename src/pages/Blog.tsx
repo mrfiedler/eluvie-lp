@@ -53,7 +53,26 @@ const Blog = () => {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `https://www.eluvie.com/blog`);
+    const blogUrl =
+      language === 'en'
+        ? 'https://www.eluvie.com/en/blog'
+        : 'https://www.eluvie.com/blog';
+    canonical.setAttribute('href', blogUrl);
+
+    const setAlt = (hreflang: string, href: string) => {
+      const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
+      let el = document.head.querySelector(sel) as HTMLLinkElement | null;
+      if (!el) {
+        el = document.createElement('link');
+        el.setAttribute('rel', 'alternate');
+        el.setAttribute('hreflang', hreflang);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('href', href);
+    };
+    setAlt('pt-BR', 'https://www.eluvie.com/blog');
+    setAlt('en', 'https://www.eluvie.com/en/blog');
+    setAlt('x-default', 'https://www.eluvie.com/blog');
 
     let ld = document.getElementById('ld-blog') as HTMLScriptElement | null;
     if (!ld) {
@@ -68,7 +87,7 @@ const Blog = () => {
       name: pageTitle,
       description: pageDescription,
       inLanguage: language,
-      url: `https://www.eluvie.com/blog`,
+      url: blogUrl,
     });
   }, [language, pageTitle, pageDescription, SITE_URL]);
 

@@ -14,7 +14,7 @@ import {
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, localPath } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -66,15 +66,16 @@ const Navbar = () => {
   );
 
   const navigateTo = (path: string) => {
-    navigate(path);
+    navigate(localPath(path));
   };
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
-    
+
+    const home = localPath('/');
     // If we're not on the homepage, navigate there first with the hash
-    if (location.pathname !== '/') {
-      navigate(`/#${id}`);
+    if (location.pathname !== home) {
+      navigate(`${home}#${id}`);
       return;
     }
     
@@ -93,7 +94,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to={localPath('/')} className="flex items-center gap-2">
             <img 
               src="/lovable-uploads/16dc7938-88ea-46da-9ce5-56e9b9900220.png"
               alt="Eluvie Logo" 
@@ -138,7 +139,7 @@ const Navbar = () => {
               }}
             >{language === 'en' ? 'Waitlist' : 'Lista de Espera'}</a>
             <Link
-              to="/diagnostic"
+              to={localPath('/diagnostic')}
               className="text-sm text-brand-magenta hover:text-white transition-colors font-medium"
             >{t('diagnostic-nav')}</Link>
           </div>
@@ -222,7 +223,7 @@ const Navbar = () => {
               {language === 'en' ? 'Waitlist' : 'Lista de Espera'}
             </a>
             <Link
-              to="/diagnostic"
+              to={localPath('/diagnostic')}
               onClick={() => setMobileMenuOpen(false)}
               className="text-base text-brand-magenta hover:text-white p-2 rounded-md hover:bg-[#2a2a2a] font-medium"
             >

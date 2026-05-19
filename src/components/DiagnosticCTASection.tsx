@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
 const DiagnosticCTASection = () => {
-  const { language } = useLanguage();
+  const { language, localPath } = useLanguage();
   const navigate = useNavigate();
   const isPt = language === 'pt-BR';
 
@@ -48,7 +48,7 @@ const DiagnosticCTASection = () => {
                 </span>
               </div>
               <Button
-                onClick={() => navigate('/diagnostic')}
+                onClick={() => navigate(localPath('/diagnostic'))}
                 className="text-sm h-11 px-6 bg-[image:var(--color-brand-gradient)] hover:opacity-90 shadow-lg shadow-brand-violet/30"
               >
                 {isPt ? 'Fazer diagnóstico grátis' : 'Get free diagnostic'}
