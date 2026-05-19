@@ -57,6 +57,8 @@ const PtRoutes = () => (
     <Route path="diagnostic" element={<Navigate to="/diagnostico" replace />} />
     <Route path="privacy" element={<Navigate to="/privacidade" replace />} />
     <Route path="terms" element={<Navigate to="/termos" replace />} />
+    <Route path="hourly-rate-calculator" element={<Navigate to="/calculadora-valor-hora" replace />} />
+    <Route path="pricing-your-services" element={<Navigate to="/precificar-servicos" replace />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
@@ -71,11 +73,14 @@ const EnRoutes = () => (
     <Route path="blog" element={<Blog />} />
     <Route path="blog/:slug" element={<BlogPost />} />
     <Route path="diagnostic" element={<Diagnostic />} />
-    <Route path="calculadora-valor-hora" element={<CalculadoraValorHora />} />
+    <Route path="hourly-rate-calculator" element={<CalculadoraValorHora />} />
     <Route path="nota-fiscal-mei" element={<NotaFiscalMei />} />
-    <Route path="precificar-servicos" element={<PrecificarServicos />} />
+    <Route path="pricing-your-services" element={<PrecificarServicos />} />
     <Route path="privacy" element={<Privacy />} />
     <Route path="terms" element={<Terms />} />
+    {/* Legacy PT-slug redirects on the EN side. */}
+    <Route path="calculadora-valor-hora" element={<Navigate to="/en/hourly-rate-calculator" replace />} />
+    <Route path="precificar-servicos" element={<Navigate to="/en/pricing-your-services" replace />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

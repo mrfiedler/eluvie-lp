@@ -38,6 +38,9 @@ export const PT_SLUGS: Record<string, string> = {
   '/diagnostic': '/diagnostico',
   '/privacy': '/privacidade',
   '/terms': '/termos',
+  // Landing pages — EN canonical keys map to PT slugs.
+  '/hourly-rate-calculator': '/calculadora-valor-hora',
+  '/pricing-your-services': '/precificar-servicos',
 };
 
 const EN_FROM_PT: Record<string, string> = Object.fromEntries(

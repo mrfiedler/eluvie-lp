@@ -187,7 +187,7 @@ const PrecificarServicos = () => {
           </div>
           <p className="text-gray-300 leading-relaxed">
             {tx(lang, 'Quer calcular o seu agora?', 'Want to calculate yours now?')}{' '}
-            <Link to={localPath('/calculadora-valor-hora')} className="text-brand-violet hover:text-brand-magenta underline">
+            <Link to={localPath('/hourly-rate-calculator')} className="text-brand-violet hover:text-brand-magenta underline">
               {tx(lang, 'Use a calculadora gratuita', 'Use the free calculator')}
             </Link>.
           </p>
@@ -318,7 +318,7 @@ const PrecificarServicos = () => {
                       "You're in the pricing structuring phase. Start with the hourly rate to build a solid base before closing larger projects.")}
                   </p>
                   <Button asChild variant="brand" size="sm">
-                    <Link to={localPath('/calculadora-valor-hora')}>
+                    <Link to={localPath('/hourly-rate-calculator')}>
                       <Calculator className="w-4 h-4 mr-2" />
                       {tx(lang, 'Calcular meu valor/hora agora', 'Calculate my hourly rate now')}
                     </Link>
@@ -369,7 +369,7 @@ const PrecificarServicos = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <ClusterCard
-              to={localPath('/calculadora-valor-hora')}
+              to={localPath('/hourly-rate-calculator')}
               icon={<Calculator className="w-6 h-6" />}
               title={tx(lang, 'Calcule seu valor/hora agora', 'Calculate your hourly rate now')}
               desc={tx(lang, 'Ferramenta gratuita baseada nos seus custos reais.', 'Free tool based on your real costs.')}

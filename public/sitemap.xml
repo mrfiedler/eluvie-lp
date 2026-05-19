@@ -46,9 +46,23 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/diagnostico" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/diagnostic" />
   </url>
-  <url><loc>https://www.eluvie.com/calculadora-valor-hora</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.eluvie.com/calculadora-valor-hora</loc><priority>0.9</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/calculadora-valor-hora" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/hourly-rate-calculator" />
+  </url>
+  <url><loc>https://www.eluvie.com/en/hourly-rate-calculator</loc><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/calculadora-valor-hora" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/hourly-rate-calculator" />
+  </url>
   <url><loc>https://www.eluvie.com/nota-fiscal-mei</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.eluvie.com/precificar-servicos</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.eluvie.com/precificar-servicos</loc><priority>0.9</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/precificar-servicos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/pricing-your-services" />
+  </url>
+  <url><loc>https://www.eluvie.com/en/pricing-your-services</loc><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/precificar-servicos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/pricing-your-services" />
+  </url>
   <url><loc>https://www.eluvie.com/privacidade</loc><priority>0.6</priority><changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/privacidade" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/privacy" />
