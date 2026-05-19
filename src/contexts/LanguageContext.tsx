@@ -26,6 +26,41 @@ export const stripEn = (pathname: string) => {
   return pathname;
 };
 
+/**
+ * Map of EN canonical path -> PT slug. Keys are what callers pass to
+ * `localPath('/about')`. When the active language is PT we swap to the
+ * Portuguese slug. Routes not listed here are language-neutral.
+ */
+export const PT_SLUGS: Record<string, string> = {
+  '/about': '/sobre-nos',
+  '/careers': '/carreiras',
+  '/coming-soon': '/em-breve',
+  '/diagnostic': '/diagnostico',
+  '/privacy': '/privacidade',
+  '/terms': '/termos',
+};
+
+const EN_FROM_PT: Record<string, string> = Object.fromEntries(
+  Object.entries(PT_SLUGS).map(([en, pt]) => [pt, en]),
+);
+
+const translateToPt = (path: string): string => {
+  // Match prefix so '/about/foo' -> '/sobre-nos/foo' (not used today but safe).
+  for (const [en, pt] of Object.entries(PT_SLUGS)) {
+    if (path === en) return pt;
+    if (path.startsWith(en + '/')) return pt + path.slice(en.length);
+  }
+  return path;
+};
+
+const translateToEn = (path: string): string => {
+  for (const [pt, en] of Object.entries(EN_FROM_PT)) {
+    if (path === pt) return en;
+    if (path.startsWith(pt + '/')) return en + path.slice(pt.length);
+  }
+  return path;
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,15 +91,23 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (!path.startsWith('/')) path = '/' + path;
     if (language === 'en') {
       if (path === '/') return '/en';
+      // Caller may pass an EN canonical key — already English, no rewrite.
       return '/en' + path;
     }
-    return path;
+    // PT: translate known EN slugs to their Portuguese equivalents.
+    return translateToPt(path);
   };
 
   const setLanguage = (lang: Language) => {
     const bare = stripEn(location.pathname);
+    // Convert current path between PT slugs and EN slugs as needed.
+    const enCanonical = isEnPath(location.pathname) ? bare : translateToEn(bare);
     const target =
-      lang === 'en' ? (bare === '/' ? '/en' : '/en' + bare) : bare;
+      lang === 'en'
+        ? enCanonical === '/'
+          ? '/en'
+          : '/en' + enCanonical
+        : translateToPt(enCanonical);
     navigate(target + location.search + location.hash);
   };
 

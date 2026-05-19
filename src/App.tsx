@@ -34,8 +34,35 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-// Inner routes (paths are relative; mounted under both '/' and '/en/').
-const InnerRoutes = () => (
+// PT-BR routes (mounted at '/'). Uses Portuguese slugs and redirects legacy
+// English slugs so old links keep working.
+const PtRoutes = () => (
+  <Routes>
+    <Route index element={<Index />} />
+    <Route path="sobre-nos" element={<About />} />
+    <Route path="carreiras" element={<Careers />} />
+    <Route path="em-breve" element={<ComingSoon />} />
+    <Route path="blog" element={<Blog />} />
+    <Route path="blog/:slug" element={<BlogPost />} />
+    <Route path="diagnostico" element={<Diagnostic />} />
+    <Route path="calculadora-valor-hora" element={<CalculadoraValorHora />} />
+    <Route path="nota-fiscal-mei" element={<NotaFiscalMei />} />
+    <Route path="precificar-servicos" element={<PrecificarServicos />} />
+    <Route path="privacidade" element={<Privacy />} />
+    <Route path="termos" element={<Terms />} />
+    {/* Legacy EN slug redirects (preserve previously indexed URLs). */}
+    <Route path="about" element={<Navigate to="/sobre-nos" replace />} />
+    <Route path="careers" element={<Navigate to="/carreiras" replace />} />
+    <Route path="coming-soon" element={<Navigate to="/em-breve" replace />} />
+    <Route path="diagnostic" element={<Navigate to="/diagnostico" replace />} />
+    <Route path="privacy" element={<Navigate to="/privacidade" replace />} />
+    <Route path="terms" element={<Navigate to="/termos" replace />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
+
+// EN routes (mounted at '/en'). Uses English slugs.
+const EnRoutes = () => (
   <Routes>
     <Route index element={<Index />} />
     <Route path="about" element={<About />} />
@@ -49,7 +76,6 @@ const InnerRoutes = () => (
     <Route path="precificar-servicos" element={<PrecificarServicos />} />
     <Route path="privacy" element={<Privacy />} />
     <Route path="terms" element={<Terms />} />
-    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
@@ -66,8 +92,8 @@ const AppRoutes = () => (
           </ProtectedAdminRoute>
         }
       />
-      <Route path="/en/*" element={<InnerRoutes />} />
-      <Route path="/*" element={<InnerRoutes />} />
+      <Route path="/en/*" element={<EnRoutes />} />
+      <Route path="/*" element={<PtRoutes />} />
     </Routes>
   </Suspense>
 );
