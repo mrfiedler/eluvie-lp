@@ -7,19 +7,26 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-type StaticRoute = { path: string; priority: string; changefreq: string; bilingual?: boolean };
+type StaticRoute = {
+  /** PT slug (mounted at '/'). Pass null for PT-only single-language pages. */
+  ptPath: string;
+  /** EN slug (mounted under '/en'). Omit for pages without an EN version. */
+  enPath?: string;
+  priority: string;
+  changefreq: string;
+};
 
-// `bilingual: true` => emit a `/en` mirror entry. PT-targeted LPs stay single-language.
 const STATIC_ROUTES: StaticRoute[] = [
-  { path: '/', priority: '1.0', changefreq: 'weekly', bilingual: true },
-  { path: '/about', priority: '0.8', changefreq: 'monthly', bilingual: true },
-  { path: '/blog', priority: '0.8', changefreq: 'weekly', bilingual: true },
-  { path: '/diagnostic', priority: '0.8', changefreq: 'monthly', bilingual: true },
-  { path: '/calculadora-valor-hora', priority: '0.9', changefreq: 'monthly' },
-  { path: '/nota-fiscal-mei', priority: '0.9', changefreq: 'monthly' },
-  { path: '/precificar-servicos', priority: '0.9', changefreq: 'monthly' },
-  { path: '/privacy', priority: '0.6', changefreq: 'yearly', bilingual: true },
-  { path: '/terms', priority: '0.6', changefreq: 'yearly', bilingual: true },
+  { ptPath: '/', enPath: '/', priority: '1.0', changefreq: 'weekly' },
+  { ptPath: '/sobre-nos', enPath: '/about', priority: '0.8', changefreq: 'monthly' },
+  { ptPath: '/carreiras', enPath: '/careers', priority: '0.6', changefreq: 'monthly' },
+  { ptPath: '/blog', enPath: '/blog', priority: '0.8', changefreq: 'weekly' },
+  { ptPath: '/diagnostico', enPath: '/diagnostic', priority: '0.8', changefreq: 'monthly' },
+  { ptPath: '/calculadora-valor-hora', priority: '0.9', changefreq: 'monthly' },
+  { ptPath: '/nota-fiscal-mei', priority: '0.9', changefreq: 'monthly' },
+  { ptPath: '/precificar-servicos', priority: '0.9', changefreq: 'monthly' },
+  { ptPath: '/privacidade', enPath: '/privacy', priority: '0.6', changefreq: 'yearly' },
+  { ptPath: '/termos', enPath: '/terms', priority: '0.6', changefreq: 'yearly' },
 ];
 
 const escapeXml = (value: string) =>
@@ -49,25 +56,25 @@ Deno.serve(async (req) => {
     const seen = new Set<string>();
     const urls: string[] = [];
 
-    const altLinks = (ptPath: string) =>
+    const altLinks = (ptPath: string, enPath: string) =>
       [
         `<xhtml:link rel="alternate" hreflang="pt-BR" href="${escapeXml(SITE_URL + ptPath)}" />`,
-        `<xhtml:link rel="alternate" hreflang="en" href="${escapeXml(SITE_URL + '/en' + (ptPath === '/' ? '' : ptPath))}" />`,
+        `<xhtml:link rel="alternate" hreflang="en" href="${escapeXml(SITE_URL + '/en' + (enPath === '/' ? '' : enPath))}" />`,
         `<xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(SITE_URL + ptPath)}" />`,
       ].join('');
 
     for (const route of STATIC_ROUTES) {
-      const ptLoc = `${SITE_URL}${route.path}`;
+      const ptLoc = `${SITE_URL}${route.ptPath}`;
       seen.add(ptLoc);
-      const alts = route.bilingual ? altLinks(route.path) : '';
+      const alts = route.enPath ? altLinks(route.ptPath, route.enPath) : '';
       urls.push(
         `  <url><loc>${escapeXml(ptLoc)}</loc><priority>${route.priority}</priority><changefreq>${route.changefreq}</changefreq>${alts}</url>`
       );
-      if (route.bilingual) {
-        const enLoc = `${SITE_URL}/en${route.path === '/' ? '' : route.path}`;
+      if (route.enPath) {
+        const enLoc = `${SITE_URL}/en${route.enPath === '/' ? '' : route.enPath}`;
         seen.add(enLoc);
         urls.push(
-          `  <url><loc>${escapeXml(enLoc)}</loc><priority>${(parseFloat(route.priority) - 0.1).toFixed(1)}</priority><changefreq>${route.changefreq}</changefreq>${altLinks(route.path)}</url>`
+          `  <url><loc>${escapeXml(enLoc)}</loc><priority>${(parseFloat(route.priority) - 0.1).toFixed(1)}</priority><changefreq>${route.changefreq}</changefreq>${altLinks(route.ptPath, route.enPath)}</url>`
         );
       }
     }

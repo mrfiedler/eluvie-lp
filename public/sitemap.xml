@@ -14,13 +14,21 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eluvie.com/" />
   </url>
-  <url><loc>https://www.eluvie.com/about</loc><priority>0.8</priority><changefreq>monthly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/about" />
+  <url><loc>https://www.eluvie.com/sobre-nos</loc><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/sobre-nos" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/about" />
   </url>
   <url><loc>https://www.eluvie.com/en/about</loc><priority>0.7</priority><changefreq>monthly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/about" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/sobre-nos" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/about" />
+  </url>
+  <url><loc>https://www.eluvie.com/carreiras</loc><priority>0.6</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/carreiras" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/careers" />
+  </url>
+  <url><loc>https://www.eluvie.com/en/careers</loc><priority>0.5</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/carreiras" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/careers" />
   </url>
   <url><loc>https://www.eluvie.com/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/blog" />
@@ -30,31 +38,31 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/blog" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/blog" />
   </url>
-  <url><loc>https://www.eluvie.com/diagnostic</loc><priority>0.8</priority><changefreq>monthly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/diagnostic" />
+  <url><loc>https://www.eluvie.com/diagnostico</loc><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/diagnostico" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/diagnostic" />
   </url>
   <url><loc>https://www.eluvie.com/en/diagnostic</loc><priority>0.7</priority><changefreq>monthly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/diagnostic" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/diagnostico" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/diagnostic" />
   </url>
   <url><loc>https://www.eluvie.com/calculadora-valor-hora</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.eluvie.com/nota-fiscal-mei</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.eluvie.com/precificar-servicos</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.eluvie.com/privacy</loc><priority>0.6</priority><changefreq>yearly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/privacy" />
+  <url><loc>https://www.eluvie.com/privacidade</loc><priority>0.6</priority><changefreq>yearly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/privacidade" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/privacy" />
   </url>
   <url><loc>https://www.eluvie.com/en/privacy</loc><priority>0.5</priority><changefreq>yearly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/privacidade" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/privacy" />
   </url>
-  <url><loc>https://www.eluvie.com/terms</loc><priority>0.6</priority><changefreq>yearly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/terms" />
+  <url><loc>https://www.eluvie.com/termos</loc><priority>0.6</priority><changefreq>yearly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/termos" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/terms" />
   </url>
   <url><loc>https://www.eluvie.com/en/terms</loc><priority>0.5</priority><changefreq>yearly</changefreq>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.eluvie.com/termos" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.eluvie.com/en/terms" />
   </url>
 </urlset>

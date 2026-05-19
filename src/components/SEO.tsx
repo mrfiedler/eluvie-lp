@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useLanguage, stripEn } from '@/contexts/LanguageContext';
+import { useLanguage, stripEn, PT_SLUGS } from '@/contexts/LanguageContext';
 import { useGeolocation } from '@/hooks/useGeolocation';
 
 const SITE_URL = 'https://www.eluvie.com';
@@ -82,9 +82,21 @@ const SEO = () => {
     setMeta('meta[name="description"]', 'content', meta.description);
     setMeta('meta[name="keywords"]', 'content', meta.keywords);
 
-    // Per-language self-referencing URLs
-    const ptUrl = SITE_URL + (bare === '/' ? '/' : bare);
-    const enUrl = SITE_URL + '/en' + (bare === '/' ? '' : bare);
+    // Resolve the EN canonical for the current page so we can build correct
+    // hreflang alternates regardless of which language slug is in the URL.
+    const EN_FROM_PT: Record<string, string> = Object.fromEntries(
+      Object.entries(PT_SLUGS).map(([en, pt]) => [pt, en]),
+    );
+    let enCanonical = bare;
+    for (const [pt, en] of Object.entries(EN_FROM_PT)) {
+      if (bare === pt || bare.startsWith(pt + '/')) {
+        enCanonical = en + bare.slice(pt.length);
+        break;
+      }
+    }
+    const ptSlug = PT_SLUGS[enCanonical] || enCanonical;
+    const ptUrl = SITE_URL + (ptSlug === '/' ? '/' : ptSlug);
+    const enUrl = SITE_URL + '/en' + (enCanonical === '/' ? '' : enCanonical);
     const selfUrl = language === 'en' ? enUrl : ptUrl;
 
     // Open Graph
