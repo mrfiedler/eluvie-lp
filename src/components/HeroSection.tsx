@@ -1,7 +1,7 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import avatar1 from '@/assets/avatar-1.png';
 import avatar2 from '@/assets/avatar-2.png';
@@ -9,7 +9,6 @@ import avatar3 from '@/assets/avatar-3.png';
 
 const HeroSection = () => {
   const { t, localPath } = useLanguage();
-  const navigate = useNavigate();
   const isMobile = useIsMobile();
   
   const scrollToVideo = () => {
@@ -36,12 +35,14 @@ const HeroSection = () => {
               {t('hero-subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="flex items-center justify-center gap-2 text-base py-4 sm:py-6 px-6 sm:px-8 bg-brand-gradient hover:opacity-90 transition-opacity border-none w-full sm:w-auto" 
-                onClick={() => navigate(localPath("/coming-soon"))}
+              <Button
+                asChild
+                className="flex items-center justify-center gap-2 text-base py-4 sm:py-6 px-6 sm:px-8 bg-brand-gradient hover:opacity-90 transition-opacity border-none w-full sm:w-auto"
               >
-                {t('start-free')}
-                <ArrowRight className="h-5 w-5" />
+                <Link to={localPath('/coming-soon')}>
+                  {t('start-free')}
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
               </Button>
               <Button 
                 variant="brandSecondary"
