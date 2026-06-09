@@ -1,0 +1,39 @@
+# Eluvie
+
+> Plataforma financeira criada por criativos, para criativos: gestão de finanças, faturas, projetos e assinaturas em um só lugar, com clareza visual e foco em freelancers e agências.
+
+A Eluvie é uma plataforma brasileira que simplifica o controle financeiro de profissionais e agências criativas (designers, marketeiros, criadores de conteúdo, freelancers). Substitui planilhas e ferramentas complicadas por uma experiência fluida, visual e em português, com suporte a múltiplas moedas. Site disponível em português (rota raiz) e inglês (prefixo `/en`).
+
+## Produto
+
+- [Página inicial](/): visão geral do produto, como funciona, funcionalidades, preços e comparação com alternativas.
+- [Como funciona](/#how-it-works): passo a passo de uso da Eluvie.
+- [Funcionalidades](/#features): recursos de finanças, faturas, projetos e assinaturas.
+- [Preços](/#pricing): planos e valores das assinaturas.
+- [Comparação](/#comparison): Eluvie versus planilhas e outras ferramentas.
+- [Lista de espera](/#waitlist): cadastro para acesso antecipado.
+- [Em breve](/em-breve): página de pré-lançamento do app.
+
+## Ferramentas gratuitas
+
+- [Calculadora de valor da hora](/calculadora-valor-hora): descubra quanto cobrar por hora como freelancer.
+- [Como precificar serviços](/precificar-servicos): guia prático de precificação para criativos.
+- [Nota fiscal MEI](/nota-fiscal-mei): tudo sobre emissão de nota fiscal para microempreendedor individual.
+- [Diagnóstico financeiro](/diagnostico): avaliação rápida da saúde financeira do seu negócio.
+
+## Conteúdo
+
+- [Blog](/blog): artigos sobre finanças, precificação, gestão e rotina de freelancers e agências criativas.
+
+## Empresa
+
+- [Sobre nós](/sobre-nos): missão, história e propósito da Eluvie.
+- [Carreiras](/carreiras): oportunidades para trabalhar com a gente.
+- [Contato](https://www.instagram.com/eluvie.app/): fale com a Eluvie pelo Instagram.
+
+## Optional
+
+- [Política de Privacidade](/privacidade): como tratamos seus dados (em conformidade com a LGPD).
+- [Termos de Uso](/termos): termos e condições de uso da plataforma.
+- [Sitemap](/sitemap.xml): mapa completo de URLs do site.
+- [Versão em inglês](/en): English version of the site.
