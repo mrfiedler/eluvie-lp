@@ -92,7 +92,9 @@ const BlogPostPage = () => {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${SITE_URL}/blog/${post.slug}`);
+    const postUrl = `${SITE_URL}${post.language === 'en' ? '/en' : ''}/blog/${post.slug}`;
+    canonical.setAttribute('href', postUrl);
+    setMeta('meta[property="og:url"]', 'content', postUrl);
 
     let ld = document.getElementById('ld-article') as HTMLScriptElement | null;
     if (!ld) {
@@ -108,7 +110,7 @@ const BlogPostPage = () => {
       description,
       inLanguage: post.language,
       image: post.featured_image_url || undefined,
-      mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+      mainEntityOfPage: postUrl,
       articleSection: post.category,
       datePublished: post.published_at || undefined,
     });
@@ -188,7 +190,7 @@ const BlogPostPage = () => {
                 {related.map((r) => (
                   <Link
                     key={r.id}
-                    to={`/blog/${r.slug}`}
+                    to={localPath(`/blog/${r.slug}`)}
                     className="group flex flex-col rounded-xl overflow-hidden bg-[#202020] border border-gray-700 hover:border-[#8e60e5]/60 transition-all"
                   >
                     <div className="aspect-video bg-[#2a2a2a] overflow-hidden">
