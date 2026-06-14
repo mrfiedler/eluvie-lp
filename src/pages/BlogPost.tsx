@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -24,6 +24,8 @@ type BlogPost = {
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { language, t, localPath } = useLanguage();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [related, setRelated] = useState<BlogPost[]>([]);
@@ -59,6 +61,15 @@ const BlogPostPage = () => {
       active = false;
     };
   }, [slug]);
+
+  useEffect(() => {
+    if (!post) return;
+    const isEnRoute = location.pathname.startsWith('/en/');
+    const canonicalPath = `${post.language === 'en' ? '/en' : ''}/blog/${post.slug}`;
+    if (location.pathname !== canonicalPath && (post.language === 'en') !== isEnRoute) {
+      navigate(canonicalPath, { replace: true });
+    }
+  }, [post, location.pathname, navigate]);
 
   useEffect(() => {
     if (!post) return;
