@@ -21,7 +21,7 @@ type BlogPost = {
 };
 
 const Blog = () => {
-  const { language, t } = useLanguage();
+  const { language, t, localPath } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -175,7 +175,7 @@ const Blog = () => {
                   key={post.id}
                   className="group flex flex-col rounded-xl overflow-hidden bg-[#202020] border border-gray-700 hover:border-[#8e60e5]/60 transition-all duration-300"
                 >
-                  <Link to={`/blog/${post.slug}`} className="block">
+                  <Link to={localPath(`/blog/${post.slug}`)} className="block">
                     <div className="aspect-video bg-[#2a2a2a] overflow-hidden">
                       {post.featured_image_url ? (
                         <img
@@ -194,7 +194,7 @@ const Blog = () => {
                       {post.category}
                     </span>
                     <h2 className="text-xl font-semibold text-white mb-2 line-clamp-2">
-                      <Link to={`/blog/${post.slug}`} className="hover:text-[#d64ec2] transition-colors">
+                      <Link to={localPath(`/blog/${post.slug}`)} className="hover:text-[#d64ec2] transition-colors">
                         {post.title}
                       </Link>
                     </h2>
@@ -204,7 +204,7 @@ const Blog = () => {
                       </p>
                     )}
                     <Link
-                      to={`/blog/${post.slug}`}
+                      to={localPath(`/blog/${post.slug}`)}
                       className="inline-flex items-center gap-1 text-sm text-white hover:text-[#d64ec2] transition-colors mt-auto"
                     >
                       {t('blog-read-article')} <ArrowRight className="h-4 w-4" />

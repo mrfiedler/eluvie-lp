@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -24,6 +24,8 @@ type BlogPost = {
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { language, t, localPath } = useLanguage();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [related, setRelated] = useState<BlogPost[]>([]);
@@ -62,6 +64,15 @@ const BlogPostPage = () => {
 
   useEffect(() => {
     if (!post) return;
+    const isEnRoute = location.pathname.startsWith('/en/');
+    const canonicalPath = `${post.language === 'en' ? '/en' : ''}/blog/${post.slug}`;
+    if (location.pathname !== canonicalPath && (post.language === 'en') !== isEnRoute) {
+      navigate(canonicalPath, { replace: true });
+    }
+  }, [post, location.pathname, navigate]);
+
+  useEffect(() => {
+    if (!post) return;
     const SITE_URL = 'https://www.eluvie.com';
     const title = post.meta_title || post.title;
     const description = post.meta_description || post.short_description || '';
@@ -92,7 +103,9 @@ const BlogPostPage = () => {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${SITE_URL}/blog/${post.slug}`);
+    const postUrl = `${SITE_URL}${post.language === 'en' ? '/en' : ''}/blog/${post.slug}`;
+    canonical.setAttribute('href', postUrl);
+    setMeta('meta[property="og:url"]', 'content', postUrl);
 
     let ld = document.getElementById('ld-article') as HTMLScriptElement | null;
     if (!ld) {
@@ -108,7 +121,7 @@ const BlogPostPage = () => {
       description,
       inLanguage: post.language,
       image: post.featured_image_url || undefined,
-      mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+      mainEntityOfPage: postUrl,
       articleSection: post.category,
       datePublished: post.published_at || undefined,
     });
@@ -188,7 +201,7 @@ const BlogPostPage = () => {
                 {related.map((r) => (
                   <Link
                     key={r.id}
-                    to={`/blog/${r.slug}`}
+                    to={localPath(`/blog/${r.slug}`)}
                     className="group flex flex-col rounded-xl overflow-hidden bg-[#202020] border border-gray-700 hover:border-[#8e60e5]/60 transition-all"
                   >
                     <div className="aspect-video bg-[#2a2a2a] overflow-hidden">

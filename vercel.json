@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/blog/:slug(en-.+)",
+      "destination": "/en/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/:slug(pt-.+)",
+      "destination": "/blog/:slug",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
