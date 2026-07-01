@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { APP_URL } from '@/lib/urls';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -130,14 +131,6 @@ const Navbar = () => {
                 scrollToSection('pricing');
               }}
             >{t('pricing')}</a>
-            <a 
-              href="#waitlist" 
-              className="text-sm text-gray-300 hover:text-white transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('waitlist');
-              }}
-            >{language === 'en' ? 'Waitlist' : 'Lista de Espera'}</a>
             <Link
               to={localPath('/diagnostic')}
               className="text-sm text-brand-magenta hover:text-white transition-colors font-medium"
@@ -145,18 +138,18 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <Button 
+            <Button
+              asChild
               variant="brandSecondary"
               className="text-sm"
-              onClick={() => navigateTo('/coming-soon')}
             >
-              {t('sign-in')}
+              <a href={APP_URL}>{t('sign-in')}</a>
             </Button>
-            <Button 
+            <Button
+              asChild
               className="text-sm"
-              onClick={() => navigateTo('/coming-soon')}
             >
-              {t('sign-up')}
+              <a href={APP_URL}>{t('sign-up')}</a>
             </Button>
             <LangSwitcher />
           </div>
@@ -211,17 +204,6 @@ const Navbar = () => {
             >
               {t('pricing')}
             </a>
-            <a 
-              href="#waitlist" 
-              className="text-base text-gray-300 hover:text-white p-2 rounded-md hover:bg-[#2a2a2a]"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('waitlist');
-                setMobileMenuOpen(false);
-              }}
-            >
-              {language === 'en' ? 'Waitlist' : 'Lista de Espera'}
-            </a>
             <Link
               to={localPath('/diagnostic')}
               onClick={() => setMobileMenuOpen(false)}
@@ -233,24 +215,20 @@ const Navbar = () => {
             <div className="border-t border-gray-700 my-2"></div>
             
             <div className="flex flex-col space-y-3 pt-2">
-              <Button 
+              <Button
+                asChild
                 variant="brandSecondary"
                 className="w-full"
-                onClick={() => {
-                  navigateTo('/coming-soon');
-                  setMobileMenuOpen(false);
-                }}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                {t('sign-in')}
+                <a href={APP_URL}>{t('sign-in')}</a>
               </Button>
-              <Button 
+              <Button
+                asChild
                 className="w-full"
-                onClick={() => {
-                  navigateTo('/coming-soon');
-                  setMobileMenuOpen(false);
-                }}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                {t('sign-up-free')}
+                <a href={APP_URL}>{t('sign-up-free')}</a>
               </Button>
             </div>
           </div>
