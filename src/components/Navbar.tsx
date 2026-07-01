@@ -66,10 +66,6 @@ const Navbar = () => {
     </DropdownMenu>
   );
 
-  const navigateTo = (path: string) => {
-    navigate(localPath(path));
-  };
-
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
 
