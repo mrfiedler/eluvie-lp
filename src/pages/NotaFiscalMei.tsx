@@ -443,7 +443,7 @@ const NotaFiscalMei = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
               <Button asChild variant="brand" size="lg">
-                <a href="/#waitlist">Começar grátis</a>
+                <a href="https://www.eluvie.app/">Começar grátis</a>
               </Button>
               <Button asChild variant="brandSecondary" size="lg">
                 <a href={whatsappSpecialist} target="_blank" rel="noopener noreferrer">
