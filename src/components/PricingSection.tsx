@@ -1,9 +1,9 @@
 
-import { useNavigate } from 'react-router-dom';
 import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { APP_URL } from '@/lib/urls';
 
 interface FeatureItem {
   key: string;
@@ -16,8 +16,7 @@ interface FeatureCategory {
 }
 
 const PricingSection = () => {
-  const { t, localPath } = useLanguage();
-  const navigate = useNavigate();
+  const { t } = useLanguage();
   const isMobile = useIsMobile();
 
   const soloFeatures: FeatureCategory[] = [
@@ -162,11 +161,11 @@ const PricingSection = () => {
                 <p className="text-sm text-gray-400">{t('solo-for')}</p>
               </div>
               
-              <Button 
+              <Button
+                asChild
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate(localPath("/coming-soon"))}
               >
-                {t('get-started-free')}
+                <a href={APP_URL}>{t('get-started-free')}</a>
               </Button>
               
               <div className="flex-1">
@@ -186,11 +185,11 @@ const PricingSection = () => {
                 <p className="text-sm text-gray-400">{t('standard-for')}</p>
               </div>
               
-              <Button 
+              <Button
+                asChild
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate(localPath("/coming-soon"))}
               >
-                {t('start-trial')}
+                <a href={APP_URL}>{t('start-trial')}</a>
               </Button>
               
               <div className="flex-1">
@@ -216,11 +215,11 @@ const PricingSection = () => {
                 <p className="text-sm text-gray-400">{t('studio-for')}</p>
               </div>
               
-              <Button 
+              <Button
+                asChild
                 className="w-full py-5 bg-brand-gradient hover:opacity-90 transition-opacity mt-4"
-                onClick={() => navigate(localPath("/coming-soon"))}
               >
-                {t('start-trial')}
+                <a href={APP_URL}>{t('start-trial')}</a>
               </Button>
               
               <div className="flex-1">
