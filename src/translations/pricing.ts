@@ -132,12 +132,12 @@ const pricingTranslations = {
     'pt-BR': 'Dashboard completo'
   },
   'standard-revenues': {
-    en: '30 revenues',
-    'pt-BR': '30 receitas'
+    en: '20 revenues',
+    'pt-BR': '20 receitas'
   },
   'standard-expenses': {
-    en: '30 expenses',
-    'pt-BR': '30 despesas'
+    en: '20 expenses',
+    'pt-BR': '20 despesas'
   },
   'standard-clients': {
     en: 'Client registration',
@@ -148,8 +148,8 @@ const pricingTranslations = {
     'pt-BR': 'Controle de contratos'
   },
   'standard-budget-invoice': {
-    en: 'Budget to billing conversion',
-    'pt-BR': 'Conversão de orçamento para faturamento'
+    en: 'Budget to revenue conversion',
+    'pt-BR': 'Conversão de orçamento para receita'
   },
   'standard-subscriptions': {
     en: 'Subscriptions / recurring revenue control',

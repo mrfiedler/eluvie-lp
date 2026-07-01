@@ -111,18 +111,6 @@ const Footer = () => {
                   {t('pricing')}
                 </a>
               </li>
-              <li>
-                <a 
-                  href="#waitlist" 
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('waitlist');
-                  }}
-                >
-                  {language === 'en' ? 'Waitlist' : 'Lista de Espera'}
-                </a>
-              </li>
             </ul>
           </div>
           

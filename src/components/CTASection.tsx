@@ -2,11 +2,11 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { APP_URL, whatsappUrlWith, DEMO_MESSAGE_PT, DEMO_MESSAGE_EN } from '@/lib/urls';
 
 const CTASection = () => {
-  const { t, localPath } = useLanguage();
-  const navigate = useNavigate();
+  const { t, language } = useLanguage();
+  const demoUrl = whatsappUrlWith(language === 'en' ? DEMO_MESSAGE_EN : DEMO_MESSAGE_PT);
   
   return (
     <section className="section bg-[#202020] relative overflow-hidden">
@@ -23,19 +23,23 @@ const CTASection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
+            <Button
+              asChild
               className="w-full sm:w-auto text-base py-6 px-8 bg-brand-gradient hover:opacity-90 transition-opacity"
-              onClick={() => navigate(localPath("/coming-soon"))}
             >
-              {t('try-eluvie-free')}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href={APP_URL}>
+                {t('try-eluvie-free')}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
-            <Button 
+            <Button
+              asChild
               variant="brandSecondary"
               className="w-full sm:w-auto text-base py-6 px-8"
-              onClick={() => navigate(localPath("/coming-soon"))}
             >
-              {t('schedule-demo')}
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+                {t('schedule-demo')}
+              </a>
             </Button>
           </div>
           

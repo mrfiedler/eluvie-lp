@@ -72,20 +72,22 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const language: Language = isEnPath(location.pathname) ? 'en' : 'pt-BR';
   const autoRedirectDone = useRef(false);
 
-  // First-visit auto-redirect: if the user lands on the bare PT root '/' and
-  // geolocation says they are non-BR, send them to '/en' once.
+  // First-visit auto-redirect based on BROWSER language (not IP).
+  // Portuguese speakers (Brazil, Portugal, Angola, Moçambique, etc.) stay on
+  // '/'. Anyone else lands on '/en'. This avoids sending Googlebot (which
+  // does not set navigator.language and crawls from US IPs) into a redirect
+  // loop that was polluting our canonical for '/'.
   useEffect(() => {
-    if (geo.loading || autoRedirectDone.current) return;
+    if (autoRedirectDone.current) return;
     autoRedirectDone.current = true;
-    if (
-      location.pathname === '/' &&
-      geo.region &&
-      geo.region !== 'BR'
-    ) {
+    if (location.pathname !== '/') return;
+    const nav = (typeof navigator !== 'undefined' && (navigator.language || (navigator.languages && navigator.languages[0]))) || '';
+    const isPtSpeaker = nav.toLowerCase().startsWith('pt');
+    if (!isPtSpeaker) {
       navigate('/en' + location.search + location.hash, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [geo.loading, geo.region]);
+  }, []);
 
   const localPath = (path: string): string => {
     if (!path) return language === 'en' ? '/en' : '/';

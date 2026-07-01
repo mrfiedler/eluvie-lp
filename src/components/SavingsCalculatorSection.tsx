@@ -162,12 +162,14 @@ const SavingsCalculatorSection = () => {
 
             <div className="mt-8">
               <Button
-                onClick={() => navigate(localPath('/coming-soon'))}
+                asChild
                 size="lg"
                 className="w-full text-base py-6 shadow-lg shadow-brand-violet/30"
               >
-                {isPt ? 'Começar grátis agora' : 'Start for free now'}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <a href="https://www.eluvie.app/">
+                  {isPt ? 'Começar grátis agora' : 'Start for free now'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
               <p className="text-xs text-gray-400 text-center mt-3">
                 {isPt ? 'Sem cartão de crédito. Sem compromisso.' : 'No credit card. No commitment.'}

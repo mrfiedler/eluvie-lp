@@ -569,7 +569,7 @@ const CalculadoraValorHora = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
               <Button asChild variant="brand" size="lg">
-                <a href="/#waitlist">
+                <a href="https://www.eluvie.app/">
                   {tx(lang, 'Começar grátis', 'Start free')}
                 </a>
               </Button>
