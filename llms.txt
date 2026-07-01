@@ -11,8 +11,7 @@ A Eluvie é uma plataforma brasileira que simplifica o controle financeiro de pr
 - [Funcionalidades](/#features): recursos de finanças, faturas, projetos e assinaturas.
 - [Preços](/#pricing): planos e valores das assinaturas.
 - [Comparação](/#comparison): Eluvie versus planilhas e outras ferramentas.
-- [Lista de espera](/#waitlist): cadastro para acesso antecipado.
-- [Em breve](/em-breve): página de pré-lançamento do app.
+- [Aplicativo Eluvie](https://www.eluvie.app/): acesse a plataforma para começar a usar gratuitamente.
 
 ## Ferramentas gratuitas
 
