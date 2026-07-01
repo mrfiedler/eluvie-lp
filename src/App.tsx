@@ -9,7 +9,6 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
-import ComingSoon from "./pages/ComingSoon";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Diagnostic from "./pages/Diagnostic";
@@ -34,6 +33,14 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Redirect to the live app for former waitlist / coming-soon URLs.
+const AppRedirect = () => {
+  if (typeof window !== 'undefined') {
+    window.location.replace('https://www.eluvie.app/');
+  }
+  return null;
+};
+
 // PT-BR routes (mounted at '/'). Uses Portuguese slugs and redirects legacy
 // English slugs so old links keep working.
 const PtRoutes = () => (
@@ -41,7 +48,7 @@ const PtRoutes = () => (
     <Route index element={<Index />} />
     <Route path="sobre-nos" element={<About />} />
     <Route path="carreiras" element={<Careers />} />
-    <Route path="em-breve" element={<ComingSoon />} />
+    <Route path="em-breve" element={<AppRedirect />} />
     <Route path="blog" element={<Blog />} />
     <Route path="blog/:slug" element={<BlogPost />} />
     <Route path="diagnostico" element={<Diagnostic />} />
@@ -53,7 +60,7 @@ const PtRoutes = () => (
     {/* Legacy EN slug redirects (preserve previously indexed URLs). */}
     <Route path="about" element={<Navigate to="/sobre-nos" replace />} />
     <Route path="careers" element={<Navigate to="/carreiras" replace />} />
-    <Route path="coming-soon" element={<Navigate to="/em-breve" replace />} />
+    <Route path="coming-soon" element={<AppRedirect />} />
     <Route path="diagnostic" element={<Navigate to="/diagnostico" replace />} />
     <Route path="privacy" element={<Navigate to="/privacidade" replace />} />
     <Route path="terms" element={<Navigate to="/termos" replace />} />
@@ -69,7 +76,7 @@ const EnRoutes = () => (
     <Route index element={<Index />} />
     <Route path="about" element={<About />} />
     <Route path="careers" element={<Careers />} />
-    <Route path="coming-soon" element={<ComingSoon />} />
+    <Route path="coming-soon" element={<AppRedirect />} />
     <Route path="blog" element={<Blog />} />
     <Route path="blog/:slug" element={<BlogPost />} />
     <Route path="diagnostic" element={<Diagnostic />} />
