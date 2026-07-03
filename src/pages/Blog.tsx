@@ -94,19 +94,32 @@ const Blog = () => {
   useEffect(() => {
     let active = true;
     setLoading(true);
+    const safetyTimeout = window.setTimeout(() => {
+      if (active) setLoading(false);
+    }, 8000);
     (async () => {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('id, slug, title, short_description, category, featured_image_url, published_at, meta_title, meta_description')
-        .eq('language', language)
-        .eq('status', 'published')
-        .order('published_at', { ascending: false, nullsFirst: false });
-      if (!active) return;
-      if (!error && data) setPosts(data as BlogPost[]);
-      setLoading(false);
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('id, slug, title, short_description, category, featured_image_url, published_at, meta_title, meta_description')
+          .eq('language', language)
+          .eq('status', 'published')
+          .order('published_at', { ascending: false, nullsFirst: false });
+        if (!active) return;
+        if (error) {
+          console.error('Failed to load blog posts:', error);
+        } else if (data) {
+          setPosts(data as BlogPost[]);
+        }
+      } catch (err) {
+        console.error('Failed to load blog posts:', err);
+      } finally {
+        if (active) setLoading(false);
+      }
     })();
     return () => {
       active = false;
+      window.clearTimeout(safetyTimeout);
     };
   }, [language]);
 

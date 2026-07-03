@@ -53,15 +53,33 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     );
 
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      const currentUser = session?.user ?? null;
-      setUser(currentUser);
-      if (currentUser) {
-        const admin = await checkAdminRole(currentUser.id);
-        setIsAdmin(admin);
-      }
-      setLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(async ({ data: { session } }) => {
+        const currentUser = session?.user ?? null;
+        setUser(currentUser);
+        if (currentUser) {
+          const admin = await checkAdminRole(currentUser.id);
+          setIsAdmin(admin);
+        }
+      })
+      .catch((err) => {
+        console.error('Auth getSession failed:', err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    // Safety timeout — if Supabase never responds (e.g. blocked by an
+    // ad-blocker or network filter), still release the loading gate so the
+    // UI can render the login screen instead of hanging on "Loading...".
+    const timeout = window.setTimeout(() => setLoading(false), 4000);
+
+    const unsub = subscription.unsubscribe.bind(subscription);
+    subscription.unsubscribe = () => {
+      window.clearTimeout(timeout);
+      unsub();
+    };
 
     return () => subscription.unsubscribe();
   }, []);
