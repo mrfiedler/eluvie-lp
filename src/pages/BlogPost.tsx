@@ -31,6 +31,27 @@ const BlogPostPage = () => {
   const [related, setRelated] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // URL-based normalization runs BEFORE fetching. All published slugs are
+  // prefixed with `en-` or `pt-`, so we can infer the correct language route
+  // from the slug itself and 301-style redirect immediately. This avoids the
+  // "soft 404" / "page with redirect" reports Googlebot logs when the redirect
+  // fires only after a fetch renders an empty state first.
+  useEffect(() => {
+    if (!slug) return;
+    const isEnRoute = location.pathname.startsWith('/en/');
+    const slugLang: 'en' | 'pt-BR' | null = slug.startsWith('en-')
+      ? 'en'
+      : slug.startsWith('pt-')
+        ? 'pt-BR'
+        : null;
+    if (!slugLang) return;
+    const shouldBeEn = slugLang === 'en';
+    if (shouldBeEn !== isEnRoute) {
+      const target = `${shouldBeEn ? '/en' : ''}/blog/${slug}`;
+      navigate(target, { replace: true });
+    }
+  }, [slug, location.pathname, navigate]);
+
   useEffect(() => {
     let active = true;
     setLoading(true);
@@ -61,15 +82,6 @@ const BlogPostPage = () => {
       active = false;
     };
   }, [slug]);
-
-  useEffect(() => {
-    if (!post) return;
-    const isEnRoute = location.pathname.startsWith('/en/');
-    const canonicalPath = `${post.language === 'en' ? '/en' : ''}/blog/${post.slug}`;
-    if (location.pathname !== canonicalPath && (post.language === 'en') !== isEnRoute) {
-      navigate(canonicalPath, { replace: true });
-    }
-  }, [post, location.pathname, navigate]);
 
   useEffect(() => {
     if (!post) return;
@@ -126,6 +138,19 @@ const BlogPostPage = () => {
       datePublished: post.published_at || undefined,
     });
   }, [post]);
+
+  // When a slug does not resolve to a published post, tell Googlebot to skip
+  // indexing so it does not log the page as a soft 404. Cleanup restores the
+  // sitewide "index, follow" directive when the user navigates away.
+  useEffect(() => {
+    if (loading || post) return;
+    const robots = document.head.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    const prev = robots?.getAttribute('content') ?? null;
+    if (robots) robots.setAttribute('content', 'noindex, nofollow');
+    return () => {
+      if (robots && prev !== null) robots.setAttribute('content', prev);
+    };
+  }, [loading, post]);
 
   const embedUrl = post?.youtube_url ? getYouTubeEmbedUrl(post.youtube_url) : null;
 

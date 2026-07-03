@@ -119,6 +119,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Add favicon -->
     <link rel="icon" href="/lovable-uploads/71cb45b1-b5a7-46d1-bb08-c0c67a64d10e.png" type="image/png">
+    <!-- Early language-aware meta swap so crawlers snapshotting /en see English
+         head content immediately, avoiding "Google chose a different canonical"
+         when initial static HTML is identical to /. Runs before React mounts. -->
+    <script>
+      (function () {
+        try {
+          var p = window.location.pathname || '/';
+          var isEn = p === '/en' || p.indexOf('/en/') === 0;
+          if (isEn) {
+            document.documentElement.lang = 'en';
+            document.title = 'Eluvie - Financial platform for creative professionals';
+            var setMeta = function (sel, attr, val) {
+              var el = document.head.querySelector(sel);
+              if (el) el.setAttribute(attr, val);
+            };
+            var desc = 'Eluvie is a financial management platform built by creatives, for creatives. Simplify cash flow, budgets, clients and subscriptions.';
+            setMeta('meta[name="description"]', 'content', desc);
+            setMeta('meta[property="og:title"]', 'content', 'Eluvie - Financial platform for creative professionals');
+            setMeta('meta[property="og:description"]', 'content', desc);
+            setMeta('meta[property="og:locale"]', 'content', 'en_US');
+            setMeta('meta[property="og:url"]', 'content', 'https://www.eluvie.com/en');
+            setMeta('meta[name="twitter:title"]', 'content', 'Eluvie - Financial platform for creative professionals');
+            setMeta('meta[name="twitter:description"]', 'content', desc);
+            var can = document.head.querySelector('link[rel="canonical"]');
+            if (can) can.setAttribute('href', 'https://www.eluvie.com/en');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <style>
       body {
         background-color: #111318;
