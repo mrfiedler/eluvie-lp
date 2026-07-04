@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
-import { getYouTubeEmbedUrl } from '@/lib/blogCategories';
+import { getLocalizedBlogCategory, getYouTubeEmbedUrl } from '@/lib/blogCategories';
 import { ArrowLeft } from 'lucide-react';
 
 type BlogPost = {
@@ -176,7 +176,7 @@ const BlogPostPage = () => {
             ) : (
               <>
                 <span className="inline-block text-xs uppercase tracking-wide text-[#d64ec2] bg-[#d64ec2]/10 border border-[#d64ec2]/30 rounded-full px-3 py-1">
-                  {post.category}
+                  {getLocalizedBlogCategory(post.category, language)}
                 </span>
                 <h1 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
                   {post.title}
@@ -243,7 +243,7 @@ const BlogPostPage = () => {
                     </div>
                     <div className="p-5">
                       <span className="text-xs uppercase tracking-wide text-[#d64ec2]">
-                        {r.category}
+                        {getLocalizedBlogCategory(r.category, language)}
                       </span>
                       <h3 className="text-lg font-semibold text-white mt-2 line-clamp-2 group-hover:text-[#d64ec2] transition-colors">
                         {r.title}

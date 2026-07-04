@@ -5,7 +5,12 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
-import { BLOG_CATEGORIES } from '@/lib/blogCategories';
+import {
+  BLOG_CATEGORIES,
+  blogCategoriesMatch,
+  getBlogCategoryKey,
+  getLocalizedBlogCategory,
+} from '@/lib/blogCategories';
 import { ArrowRight } from 'lucide-react';
 
 type BlogPost = {
@@ -124,13 +129,21 @@ const Blog = () => {
   }, [language]);
 
   const categories = useMemo(() => {
-    const set = new Set<string>(BLOG_CATEGORIES[language]);
-    posts.forEach((p) => set.add(p.category));
-    return Array.from(set);
+    const byKey = new Map<string, string>();
+    BLOG_CATEGORIES[language].forEach((category) => {
+      byKey.set(getBlogCategoryKey(category), category);
+    });
+    posts.forEach((post) => {
+      const key = getBlogCategoryKey(post.category);
+      if (!byKey.has(key)) {
+        byKey.set(key, getLocalizedBlogCategory(post.category, language));
+      }
+    });
+    return Array.from(byKey.values());
   }, [posts, language]);
 
   const filtered = useMemo(
-    () => (activeCategory ? posts.filter((p) => p.category === activeCategory) : posts),
+    () => (activeCategory ? posts.filter((p) => blogCategoriesMatch(p.category, activeCategory)) : posts),
     [posts, activeCategory],
   );
 
@@ -204,7 +217,7 @@ const Blog = () => {
                   </Link>
                   <div className="p-6 flex flex-col flex-1">
                     <span className="text-xs uppercase tracking-wide text-brand-violet mb-2">
-                      {post.category}
+                      {getLocalizedBlogCategory(post.category, language)}
                     </span>
                     <h2 className="text-xl font-semibold text-white mb-2 line-clamp-2">
                       <Link to={localPath(`/blog/${post.slug}`)} className="hover:text-[#d64ec2] transition-colors">

@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/components/ui/use-toast';
 import { Plus, Trash, Edit, Upload } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { BLOG_CATEGORIES, slugify } from '@/lib/blogCategories';
+import { BLOG_CATEGORIES, getLocalizedBlogCategory, slugify } from '@/lib/blogCategories';
 import type { Language } from '@/translations/types';
 
 type Status = 'draft' | 'published';
@@ -96,7 +96,7 @@ const BlogAdmin = () => {
       id: p.id,
       language: p.language,
       slug: p.slug,
-      category: p.category,
+      category: getLocalizedBlogCategory(p.category, p.language),
       title: p.title,
       short_description: p.short_description || '',
       featured_image_url: p.featured_image_url || '',
@@ -216,7 +216,7 @@ const BlogAdmin = () => {
                         <TableRow key={p.id}>
                           <TableCell className="font-medium">{p.title}</TableCell>
                           <TableCell className="text-gray-400">/{p.slug}</TableCell>
-                          <TableCell>{p.category}</TableCell>
+                          <TableCell>{getLocalizedBlogCategory(p.category, p.language)}</TableCell>
                           <TableCell>
                             <span
                               className={`text-xs px-2 py-1 rounded ${
@@ -277,9 +277,7 @@ const BlogAdmin = () => {
                       setEditing({
                         ...editing,
                         language: lang,
-                        category: BLOG_CATEGORIES[lang].includes(editing.category)
-                          ? editing.category
-                          : BLOG_CATEGORIES[lang][0],
+                        category: getLocalizedBlogCategory(editing.category, lang),
                       });
                     }}
                     className="w-full bg-[#202020] border border-gray-700 rounded-md p-2 text-white"
