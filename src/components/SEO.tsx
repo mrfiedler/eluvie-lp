@@ -152,10 +152,6 @@ const SEO = () => {
     if (bare.startsWith('/precificar-servicos')) return;
     const localizedBase = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
-    document.title = meta.title;
-
-    setMeta('meta[name="description"]', 'content', meta.description);
-    setMeta('meta[name="keywords"]', 'content', meta.keywords);
 
     // Resolve the EN canonical for the current page so we can build correct
     // hreflang alternates regardless of which language slug is in the URL.
@@ -179,6 +175,10 @@ const SEO = () => {
           keywords: routeMeta.keywords,
         }
       : localizedBase;
+    document.title = meta.title;
+
+    setMeta('meta[name="description"]', 'content', meta.description);
+    setMeta('meta[name="keywords"]', 'content', meta.keywords);
     const ptUrl = SITE_URL + (ptSlug === '/' ? '/' : ptSlug);
     const enUrl = SITE_URL + '/en' + (enCanonical === '/' ? '' : enCanonical);
     const selfUrl = language === 'en' ? enUrl : ptUrl;
