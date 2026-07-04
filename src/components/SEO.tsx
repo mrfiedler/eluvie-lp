@@ -27,6 +27,81 @@ const META = {
   },
 };
 
+const ROUTE_META: Record<string, Record<'pt-BR' | 'en', { title: string; description: string; keywords: string }>> = {
+  '/': {
+    'pt-BR': {
+      title: 'Eluvie - Plataforma financeira para profissionais criativos',
+      description: 'A Eluvie ajuda freelancers e agências criativas a controlar finanças, clientes, propostas, contratos e assinaturas em um só lugar.',
+      keywords: 'gestão financeira para freelancers, finanças criativas, fluxo de caixa, propostas, contratos, assinaturas',
+    },
+    en: {
+      title: 'Eluvie - Financial platform for creative professionals',
+      description: 'Eluvie helps freelancers and creative agencies manage finances, clients, proposals, contracts and subscriptions in one place.',
+      keywords: 'financial management for freelancers, creative finance, cash flow, proposals, contracts, subscriptions',
+    },
+  },
+  '/sobre-nos': {
+    'pt-BR': {
+      title: 'Sobre a Eluvie - Finanças para criativos',
+      description: 'Conheça a missão da Eluvie: simplificar a gestão financeira de freelancers, estúdios e agências criativas.',
+      keywords: 'sobre a Eluvie, finanças para criativos, gestão financeira para freelancers, agências criativas',
+    },
+    en: {
+      title: 'About Eluvie - Finance for creatives',
+      description: 'Learn about Eluvie’s mission to simplify financial management for freelancers, studios and creative agencies.',
+      keywords: 'about Eluvie, finance for creatives, financial management for freelancers, creative agencies',
+    },
+  },
+  '/carreiras': {
+    'pt-BR': {
+      title: 'Carreiras na Eluvie - Trabalhe com finanças criativas',
+      description: 'Veja oportunidades para construir com a Eluvie uma plataforma financeira feita para criativos.',
+      keywords: 'carreiras Eluvie, vagas Eluvie, trabalhar com fintech, finanças criativas',
+    },
+    en: {
+      title: 'Careers at Eluvie - Build creative finance tools',
+      description: 'Explore opportunities to help Eluvie build financial tools for freelancers, studios and creative agencies.',
+      keywords: 'Eluvie careers, fintech jobs, creative finance, startup jobs',
+    },
+  },
+  '/diagnostico': {
+    'pt-BR': {
+      title: 'Diagnóstico financeiro grátis para criativos - Eluvie',
+      description: 'Faça um diagnóstico gratuito para entender a saúde financeira do seu negócio criativo.',
+      keywords: 'diagnóstico financeiro grátis, saúde financeira, freelancers, agências criativas',
+    },
+    en: {
+      title: 'Free financial diagnostic for creatives - Eluvie',
+      description: 'Run a free diagnostic to understand the financial health of your creative business.',
+      keywords: 'free financial diagnostic, financial health, freelancers, creative agencies',
+    },
+  },
+  '/privacidade': {
+    'pt-BR': {
+      title: 'Política de Privacidade - Eluvie',
+      description: 'Entenda como a Eluvie coleta, usa e protege dados pessoais em conformidade com a LGPD.',
+      keywords: 'política de privacidade Eluvie, LGPD, dados pessoais, proteção de dados',
+    },
+    en: {
+      title: 'Privacy Policy - Eluvie',
+      description: 'Understand how Eluvie collects, uses and protects personal data in its financial platform.',
+      keywords: 'Eluvie privacy policy, personal data, data protection, LGPD',
+    },
+  },
+  '/termos': {
+    'pt-BR': {
+      title: 'Termos de Uso - Eluvie',
+      description: 'Leia os termos e condições de uso da plataforma financeira Eluvie.',
+      keywords: 'termos de uso Eluvie, condições de uso, plataforma financeira',
+    },
+    en: {
+      title: 'Terms of Use - Eluvie',
+      description: 'Read the terms and conditions for using the Eluvie financial platform.',
+      keywords: 'Eluvie terms of use, terms and conditions, financial platform',
+    },
+  },
+};
+
 const setMeta = (selector: string, attr: string, value: string) => {
   let el = document.head.querySelector(selector) as HTMLMetaElement | null;
   if (!el) {
@@ -75,7 +150,7 @@ const SEO = () => {
     if (bare.startsWith('/calculadora-valor-hora')) return;
     if (bare.startsWith('/nota-fiscal-mei')) return;
     if (bare.startsWith('/precificar-servicos')) return;
-    const meta = META[language];
+    const localizedBase = META[language];
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : 'en';
     document.title = meta.title;
 
@@ -95,6 +170,15 @@ const SEO = () => {
       }
     }
     const ptSlug = PT_SLUGS[enCanonical] || enCanonical;
+    const routeMeta = ROUTE_META[ptSlug]?.[language] || ROUTE_META[bare]?.[language];
+    const meta = routeMeta
+      ? {
+          ...localizedBase,
+          title: routeMeta.title,
+          description: routeMeta.description,
+          keywords: routeMeta.keywords,
+        }
+      : localizedBase;
     const ptUrl = SITE_URL + (ptSlug === '/' ? '/' : ptSlug);
     const enUrl = SITE_URL + '/en' + (enCanonical === '/' ? '' : enCanonical);
     const selfUrl = language === 'en' ? enUrl : ptUrl;
