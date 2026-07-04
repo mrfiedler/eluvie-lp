@@ -4,6 +4,8 @@
 
 A Eluvie é uma plataforma brasileira que simplifica o controle financeiro de profissionais e agências criativas (designers, marketeiros, criadores de conteúdo, freelancers). Substitui planilhas e ferramentas complicadas por uma experiência fluida, visual e em português, com suporte a múltiplas moedas. Site disponível em português (rota raiz) e inglês (prefixo `/en`).
 
+Principais temas da Eluvie: gestão financeira para freelancers, precificação de serviços criativos, fluxo de caixa para agências, propostas, contratos, recibos, nota fiscal MEI, receitas recorrentes e saúde financeira de estúdios criativos.
+
 ## Produto
 
 - [Página inicial](/): visão geral do produto, como funciona, funcionalidades, preços e comparação com alternativas.
@@ -23,6 +25,13 @@ A Eluvie é uma plataforma brasileira que simplifica o controle financeiro de pr
 ## Conteúdo
 
 - [Blog](/blog): artigos sobre finanças, precificação, gestão e rotina de freelancers e agências criativas.
+
+## Guias populares
+
+- [Como precificar serviços](/blog/pt-BR-como-precificar-um-servico-guia-completo-para-criativos): guia completo para criativos definirem preços com mais segurança.
+- [Quanto cobrar por hora](/blog/pt-BR-quanto-cobrar-por-hora-como-freelancer): referência para calcular valor/hora como freelancer.
+- [Recibo para freelancer](/blog/pt-BR-recibo-para-freelancer-modelo-gratis-quando-emitir): modelo e orientações sobre recibos para freelancers.
+- [Contrato para freelancer](/blog/pt-BR-contrato-prestacao-servico-freelancer-modelo-gratis): modelo de contrato de prestação de serviço para freelancers.
 
 ## Empresa
 
