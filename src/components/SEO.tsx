@@ -8,20 +8,20 @@ const OG_IMAGE = '/lovable-uploads/0da950c7-6e18-4083-8c37-72fc551f9225.png';
 
 const META = {
   'pt-BR': {
-    title: 'Eluvie - Plataforma financeira para profissionais criativos',
+    title: 'Eluvie - Plataforma financeira para agências, social media e estúdios criativos',
     description:
-      'A Eluvie é uma plataforma de gestão financeira feita por criativos, para criativos. Simplifique fluxo de caixa, orçamentos, clientes e assinaturas.',
+      'A Eluvie é a plataforma financeira para agências de marketing, profissionais de social media e estúdios de design — e também para freelancers criativos. Simplifique fluxo de caixa, clientes, propostas e assinaturas.',
     keywords:
-      'gestão financeira, freelancer, criativos, agência, estúdio, controle financeiro, contratos, assinaturas, recorrência, fluxo de caixa',
+      'gestão financeira para agências de marketing, gestão financeira para social media, gestão financeira para estúdios de design, agências criativas, social media, estúdios criativos, freelancer criativo, controle financeiro, contratos, assinaturas, recorrência, fluxo de caixa',
     locale: 'pt_BR',
     region: 'BR',
   },
   en: {
-    title: 'Eluvie - Financial platform for creative professionals',
+    title: 'Eluvie - Financial platform for marketing agencies, social media and creative studios',
     description:
-      'Eluvie is a financial management platform built by creatives, for creatives. Simplify cash flow, budgets, clients and subscriptions.',
+      'Eluvie is the financial platform for marketing agencies, social media professionals and design studios — and creative freelancers too. Simplify cash flow, clients, proposals and subscriptions.',
     keywords:
-      'financial management, freelancer, creative professionals, agency, studio, contracts, subscriptions, recurring revenue, cash flow',
+      'financial management for marketing agencies, financial management for social media, financial management for design studios, creative agencies, social media professionals, creative studios, creative freelancer, contracts, subscriptions, recurring revenue, cash flow',
     locale: 'en_US',
     region: 'US',
   },
@@ -30,26 +30,26 @@ const META = {
 const ROUTE_META: Record<string, Record<'pt-BR' | 'en', { title: string; description: string; keywords: string }>> = {
   '/': {
     'pt-BR': {
-      title: 'Eluvie - Plataforma financeira para profissionais criativos',
-      description: 'A Eluvie ajuda freelancers e agências criativas a controlar finanças, clientes, propostas, contratos e assinaturas em um só lugar.',
-      keywords: 'gestão financeira para freelancers, finanças criativas, fluxo de caixa, propostas, contratos, assinaturas',
+      title: 'Eluvie - Plataforma financeira para agências, social media e estúdios criativos',
+      description: 'A Eluvie ajuda agências de marketing, profissionais de social media e estúdios de design — e também freelancers criativos — a controlar finanças, clientes, propostas, contratos e assinaturas em um só lugar.',
+      keywords: 'gestão financeira para agências de marketing, gestão financeira para social media, gestão financeira para estúdios de design, freelancer criativo, propostas, contratos, assinaturas',
     },
     en: {
-      title: 'Eluvie - Financial platform for creative professionals',
-      description: 'Eluvie helps freelancers and creative agencies manage finances, clients, proposals, contracts and subscriptions in one place.',
-      keywords: 'financial management for freelancers, creative finance, cash flow, proposals, contracts, subscriptions',
+      title: 'Eluvie - Financial platform for marketing agencies, social media and creative studios',
+      description: 'Eluvie helps marketing agencies, social media professionals and design studios — and creative freelancers too — manage finances, clients, proposals, contracts and subscriptions in one place.',
+      keywords: 'financial management for marketing agencies, financial management for social media, financial management for design studios, creative freelancer, proposals, contracts, subscriptions',
     },
   },
   '/sobre-nos': {
     'pt-BR': {
       title: 'Sobre a Eluvie - Finanças para criativos',
-      description: 'Conheça a missão da Eluvie: simplificar a gestão financeira de freelancers, estúdios e agências criativas.',
-      keywords: 'sobre a Eluvie, finanças para criativos, gestão financeira para freelancers, agências criativas',
+      description: 'Conheça a missão da Eluvie: simplificar a gestão financeira de agências de marketing, profissionais de social media, estúdios de design e freelancers criativos.',
+      keywords: 'sobre a Eluvie, finanças para agências criativas, gestão financeira para social media, estúdios de design, freelancers criativos',
     },
     en: {
       title: 'About Eluvie - Finance for creatives',
-      description: 'Learn about Eluvie’s mission to simplify financial management for freelancers, studios and creative agencies.',
-      keywords: 'about Eluvie, finance for creatives, financial management for freelancers, creative agencies',
+      description: 'Learn about Eluvie’s mission to simplify financial management for marketing agencies, social media professionals, design studios and creative freelancers.',
+      keywords: 'about Eluvie, finance for creative agencies, financial management for social media, design studios, creative freelancers',
     },
   },
   '/carreiras': {
@@ -60,7 +60,7 @@ const ROUTE_META: Record<string, Record<'pt-BR' | 'en', { title: string; descrip
     },
     en: {
       title: 'Careers at Eluvie - Build creative finance tools',
-      description: 'Explore opportunities to help Eluvie build financial tools for freelancers, studios and creative agencies.',
+      description: 'Explore opportunities to help Eluvie build financial tools for marketing agencies, social media professionals, design studios and creative freelancers.',
       keywords: 'Eluvie careers, fintech jobs, creative finance, startup jobs',
     },
   },
@@ -68,12 +68,12 @@ const ROUTE_META: Record<string, Record<'pt-BR' | 'en', { title: string; descrip
     'pt-BR': {
       title: 'Diagnóstico financeiro grátis para criativos - Eluvie',
       description: 'Faça um diagnóstico gratuito para entender a saúde financeira do seu negócio criativo.',
-      keywords: 'diagnóstico financeiro grátis, saúde financeira, freelancers, agências criativas',
+      keywords: 'diagnóstico financeiro grátis, saúde financeira, agências de marketing, social media, estúdios de design, freelancers criativos',
     },
     en: {
       title: 'Free financial diagnostic for creatives - Eluvie',
       description: 'Run a free diagnostic to understand the financial health of your creative business.',
-      keywords: 'free financial diagnostic, financial health, freelancers, creative agencies',
+      keywords: 'free financial diagnostic, financial health, marketing agencies, social media, design studios, creative freelancers',
     },
   },
   '/privacidade': {
