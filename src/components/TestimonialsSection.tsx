@@ -8,6 +8,24 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       content: language === 'pt-BR' 
+        ? "Já experimentei todos os aplicativos financeiros. A Eluvie é a única que parece ter sido feita para o fluxo de trabalho da minha agência criativa."
+        : "I've tried every finance app out there. Eluvie is the only one that feels like it was made for my creative agency workflow.",
+      author: language === 'pt-BR' ? "Natasha Silva" : "Natasha Singh",
+      role: language === 'pt-BR' ? "Agência de Marketing Digital" : "Digital Marketing Agency",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/68.jpg"
+    },
+    {
+      content: language === 'pt-BR'
+        ? "Gerencio pacotes recorrentes de várias marcas ao mesmo tempo. A Eluvie deixou tudo em um só painel — nunca mais perdi um vencimento."
+        : "I manage recurring packages for several brands at once. Eluvie put everything in one dashboard — I never miss a renewal anymore.",
+      author: language === 'pt-BR' ? "Marcos Chen" : "Marcus Chen",
+      role: language === 'pt-BR' ? "Profissional de Social Media" : "Social Media Professional",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      content: language === 'pt-BR'
         ? "O Eluvie parece um estúdio criativo, não um aplicativo bancário. Gerenciar as finanças do meu estúdio de design nunca foi tão intuitivo."
         : "Eluvie feels like a creative studio, not a bank app. Managing my design business finances has never been more intuitive.",
       author: language === 'pt-BR' ? "Sofia Martins" : "Sophia Martinez",
@@ -17,29 +35,11 @@ const TestimonialsSection = () => {
     },
     {
       content: language === 'pt-BR'
-        ? "Gerenciar finanças parece menos doloroso – e até divertido. A gamificação faz com que eu realmente queira ficar em dia com minhas faturas."
-        : "Managing finances feels less painful – and even fun. The gamification makes me actually want to stay on top of my invoices.",
-      author: language === 'pt-BR' ? "Marcos Chen" : "Marcus Chen",
-      role: language === 'pt-BR' ? "Desenvolvedor Freelancer" : "Freelance Developer",
-      rating: 5,
-      image: "https://randomuser.me/api/portraits/men/32.jpg"
-    },
-    {
-      content: language === 'pt-BR'
-        ? "Já experimentei todos os aplicativos financeiros. O Eluvie é o único que parece ter sido feito para o fluxo de trabalho da minha agência criativa."
-        : "I've tried every finance app out there. Eluvie is the only one that feels like it was made for my creative agency workflow.",
-      author: language === 'pt-BR' ? "Natasha Silva" : "Natasha Singh",
-      role: language === 'pt-BR' ? "Agência de Marketing Digital" : "Digital Marketing Agency",
-      rating: 5,
-      image: "https://randomuser.me/api/portraits/women/68.jpg"
-    },
-    {
-      content: language === 'pt-BR'
-        ? "Os painéis visuais me dão insights que meu contador nunca poderia. Finalmente entendo a saúde financeira do meu negócio."
-        : "The visual dashboards give me insights my accountant never could. I finally understand my business's financial health.",
+        ? "Gerenciar as finanças do meu trabalho freela parece menos doloroso – e até divertido. Finalmente saio das planilhas."
+        : "Managing my freelance finances feels less painful – and even fun. I finally left spreadsheets behind.",
       author: language === 'pt-BR' ? "Carlos Rodriguez" : "Carlos Rodriguez",
-      role: language === 'pt-BR' ? "Estúdio de Produção de Vídeo" : "Video Production Studio",
-      rating: 4,
+      role: language === 'pt-BR' ? "Freelancer Criativo" : "Creative Freelancer",
+      rating: 5,
       image: "https://randomuser.me/api/portraits/men/75.jpg"
     }
   ];
