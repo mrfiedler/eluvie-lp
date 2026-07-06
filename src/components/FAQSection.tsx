@@ -6,7 +6,7 @@ type QA = { q: string; a: string };
 
 const FAQ: Record<'pt-BR' | 'en', QA[]> = {
   'pt-BR': [
-    { q: 'A Eluvie é só para freelancers ou serve para agências também?', a: 'A Eluvie foi pensada para qualquer profissional criativo, seja você um freelancer solo, uma agência pequena ou um estúdio em crescimento. Os planos se adaptam ao tamanho do seu negócio.' },
+    { q: 'Para quem a Eluvie foi feita?', a: 'A Eluvie foi feita principalmente para agências de marketing, profissionais de social media (gestores e criadores de conteúdo) e estúdios de design. Freelancers criativos também são bem-vindos e usam a mesma plataforma. Os planos se adaptam ao tamanho do seu negócio.' },
     { q: 'Preciso ter CNPJ para usar a Eluvie?', a: 'Não. Você pode usar a Eluvie como pessoa física ou jurídica. O que importa é organizar seu negócio, não o seu regime tributário.' },
     { q: 'Consigo controlar contratos de longo prazo, como pacotes de social media de 12 meses?', a: 'Sim. A Eluvie foi feita exatamente para isso. Você acompanha contratos recorrentes, datas de renovação e recebimentos mensais em um só lugar, sem depender de planilha ou memória.' },
     { q: 'Tenho tudo em planilha hoje. Como faço a transição?', a: 'É mais simples do que parece. Você cadastra seus clientes e contratos na Eluvie no seu ritmo, sem pressa. A maioria dos usuários faz a transição em uma tarde e nunca mais volta para a planilha.' },
@@ -16,7 +16,7 @@ const FAQ: Record<'pt-BR' | 'en', QA[]> = {
     { q: 'Posso cancelar quando quiser?', a: 'Sim, sem burocracia. O plano renova automaticamente a cada ano. Para não ser cobrado no próximo ciclo, basta cancelar antes da data de renovação. Você encontra essa informação direto na sua conta.' },
   ],
   en: [
-    { q: 'Is Eluvie only for freelancers or does it work for agencies too?', a: 'Eluvie was built for any creative professional, whether you are a solo freelancer, a small agency, or a growing studio. Plans adapt to the size of your business.' },
+    { q: 'Who is Eluvie built for?', a: 'Eluvie is built primarily for marketing agencies, social media professionals (managers and content creators) and design studios. Creative freelancers are welcome too and use the same platform. Plans adapt to the size of your business.' },
     { q: 'Do I need a registered business to use Eluvie?', a: 'No. You can use Eluvie whether you are operating as an individual or a company. What matters is getting your business organized, not your legal structure.' },
     { q: 'Can I track long-term contracts, like 12-month social media retainers?', a: 'Yes, that is exactly what Eluvie was built for. You can manage recurring contracts, renewal dates, and monthly payments all in one place. No spreadsheet or memory required.' },
     { q: 'I currently use a spreadsheet. How do I make the switch?', a: 'It is simpler than it sounds. You add your clients and contracts to Eluvie at your own pace. Most users make the switch in an afternoon and never go back to the spreadsheet.' },
