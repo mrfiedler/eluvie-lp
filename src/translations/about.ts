@@ -17,8 +17,8 @@ const aboutTranslations = {
     'pt-BR': 'Nossa Missão'
   },
   'our-mission-desc': {
-    en: 'More Freedom, Fewer Problems. We believe that financial control should not stifle your creativity. Eluvie gives you the power to make smart decisions without relying on confusing spreadsheets. Freelancers, designers, marketers, content creators, Eluvie was made for those who think visually and work intuitively. It\'s not just about controlling money, it\'s about feeling good doing it.',
-    'pt-BR': 'Mais Liberdade, Menos Problemas. Acreditamos que o controle financeiro não deve sufocar sua criatividade. A Eluvie dá o poder de tomar decisões inteligentes sem depender de planilhas confusas. Freelancers, designers, marketeiros, criadores de conteúdo, a Eluvie foi feita para quem pensa de forma visual e trabalha de forma intuitiva. Não é só sobre controlar dinheiro, é sobre se sentir bem fazendo isso.'
+    en: 'More Freedom, Fewer Problems. We believe that financial control should not stifle your creativity. Eluvie gives you the power to make smart decisions without relying on confusing spreadsheets. Marketing agencies, social media professionals, design studios — and creative freelancers too — Eluvie was made for those who think visually and work intuitively. It\'s not just about controlling money, it\'s about feeling good doing it.',
+    'pt-BR': 'Mais Liberdade, Menos Problemas. Acreditamos que o controle financeiro não deve sufocar sua criatividade. A Eluvie dá o poder de tomar decisões inteligentes sem depender de planilhas confusas. Agências de marketing, profissionais de social media, estúdios de design — e também freelancers criativos — a Eluvie foi feita para quem pensa de forma visual e trabalha de forma intuitiva. Não é só sobre controlar dinheiro, é sobre se sentir bem fazendo isso.'
   },
   'our-story': {
     en: 'Our Story',
