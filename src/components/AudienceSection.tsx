@@ -1,5 +1,5 @@
 
-import { User, Users, Paintbrush, Code } from 'lucide-react';
+import { User, Users, Paintbrush, Share2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const AudienceSection = () => {
@@ -7,19 +7,19 @@ const AudienceSection = () => {
   
   const audiences = [
     {
-      icon: <Paintbrush className="h-10 w-10 text-brand-violet" />,
-      title: t('designers-title'),
-      description: t('designers-desc')
-    },
-    {
-      icon: <Code className="h-10 w-10 text-brand-purple" />,
-      title: t('developers-title'),
-      description: t('developers-desc')
-    },
-    {
       icon: <Users className="h-10 w-10 text-brand-violet" />,
       title: t('agencies-title'),
       description: t('agencies-desc')
+    },
+    {
+      icon: <Share2 className="h-10 w-10 text-brand-purple" />,
+      title: t('socialmedia-title'),
+      description: t('socialmedia-desc')
+    },
+    {
+      icon: <Paintbrush className="h-10 w-10 text-brand-violet" />,
+      title: t('designers-title'),
+      description: t('designers-desc')
     },
     {
       icon: <User className="h-10 w-10 text-brand-purple" />,
