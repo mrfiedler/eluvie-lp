@@ -1,10 +1,10 @@
 # Eluvie
 
-> Plataforma financeira criada por criativos, para criativos: gestão de finanças, faturas, projetos e assinaturas em um só lugar, com clareza visual e foco em freelancers e agências.
+> Plataforma financeira para agências de marketing, profissionais de social media e estúdios de design — e também para freelancers criativos. Gestão de finanças, clientes, contratos, propostas e assinaturas em um só lugar.
 
-A Eluvie é uma plataforma brasileira que simplifica o controle financeiro de profissionais e agências criativas (designers, marketeiros, criadores de conteúdo, freelancers). Substitui planilhas e ferramentas complicadas por uma experiência fluida, visual e em português, com suporte a múltiplas moedas. Site disponível em português (rota raiz) e inglês (prefixo `/en`).
+A Eluvie é uma plataforma brasileira que simplifica o controle financeiro. O público principal são agências de marketing, profissionais de social media (gestores e criadores de conteúdo) e estúdios de design; freelancers criativos são atendidos como público complementar. Substitui planilhas e ferramentas complicadas por uma experiência fluida, visual e em português, com suporte a múltiplas moedas. Site disponível em português (rota raiz) e inglês (prefixo `/en`).
 
-Principais temas da Eluvie: gestão financeira para freelancers, precificação de serviços criativos, fluxo de caixa para agências, propostas, contratos, recibos, nota fiscal MEI, receitas recorrentes e saúde financeira de estúdios criativos.
+Principais temas da Eluvie: gestão financeira para agências de marketing, gestão financeira para profissionais de social media, gestão financeira para estúdios de design, precificação de serviços criativos, fluxo de caixa para agências e estúdios, propostas, contratos, receitas recorrentes e mensalidades, saúde financeira de negócios criativos, e — como público secundário — gestão financeira para freelancers criativos.
 
 ## Produto
 
