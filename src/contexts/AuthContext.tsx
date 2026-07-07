@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false);
       });
 
-    // Safety timeout — if Supabase never responds (e.g. blocked by an
+    // Safety timeout - if Supabase never responds (e.g. blocked by an
     // ad-blocker or network filter), still release the loading gate so the
     // UI can render the login screen instead of hanging on "Loading...".
     const timeout = window.setTimeout(() => setLoading(false), 4000);

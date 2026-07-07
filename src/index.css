@@ -101,7 +101,7 @@
     @apply bg-[#202020] border border-gray-700 rounded-xl shadow-lg;
   }
 
-  /* Brand button utilities — single source of truth */
+  /* Brand button utilities - single source of truth */
   .btn-brand-primary {
     background-image: var(--color-brand-gradient);
     color: #ffffff;

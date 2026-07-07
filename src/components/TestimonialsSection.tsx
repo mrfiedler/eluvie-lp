@@ -17,8 +17,8 @@ const TestimonialsSection = () => {
     },
     {
       content: language === 'pt-BR'
-        ? "Gerencio pacotes recorrentes de várias marcas ao mesmo tempo. A Eluvie deixou tudo em um só painel — nunca mais perdi um vencimento."
-        : "I manage recurring packages for several brands at once. Eluvie put everything in one dashboard — I never miss a renewal anymore.",
+        ? "Gerencio pacotes recorrentes de várias marcas ao mesmo tempo. A Eluvie deixou tudo em um só painel - nunca mais perdi um vencimento."
+        : "I manage recurring packages for several brands at once. Eluvie put everything in one dashboard - I never miss a renewal anymore.",
       author: language === 'pt-BR' ? "Marcos Chen" : "Marcus Chen",
       role: language === 'pt-BR' ? "Profissional de Social Media" : "Social Media Professional",
       rating: 5,

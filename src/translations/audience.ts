@@ -5,8 +5,8 @@ const audienceTranslations = {
     'pt-BR': 'Para Quem É'
   },
   'who-for-subtitle': {
-    en: 'Built for marketing agencies, social media professionals and design studios — and creative freelancers too',
-    'pt-BR': 'Feito para agências de marketing, profissionais de social media e estúdios de design — e também para freelancers criativos'
+    en: 'Built for marketing agencies, social media professionals and design studios - and creative freelancers too',
+    'pt-BR': 'Feito para agências de marketing, profissionais de social media e estúdios de design - e também para freelancers criativos'
   },
   'marketing-agencies': {
     en: 'Marketing Agencies',
@@ -29,8 +29,8 @@ const audienceTranslations = {
     'pt-BR': 'Agências de Marketing'
   },
   'agencies-desc': {
-    en: 'Teams juggling multiple clients, retainers, proposals and contracts — with a full financial view of every campaign and account.',
-    'pt-BR': 'Times que lidam com vários clientes, contratos fixos, propostas e recorrências — com visão financeira completa de cada campanha e conta.'
+    en: 'Teams juggling multiple clients, retainers, proposals and contracts - with a full financial view of every campaign and account.',
+    'pt-BR': 'Times que lidam com vários clientes, contratos fixos, propostas e recorrências - com visão financeira completa de cada campanha e conta.'
   },
   'socialmedia-title': {
     en: 'Social Media Professionals',
@@ -53,8 +53,8 @@ const audienceTranslations = {
     'pt-BR': 'Freelancers Criativos'
   },
   'freelancers-desc': {
-    en: 'Solo professionals balancing multiple income streams and client relationships — with the same tools the agencies use.',
-    'pt-BR': 'Profissionais autônomos equilibrando múltiplos fluxos de renda e clientes — com as mesmas ferramentas usadas pelas agências.'
+    en: 'Solo professionals balancing multiple income streams and client relationships - with the same tools the agencies use.',
+    'pt-BR': 'Profissionais autônomos equilibrando múltiplos fluxos de renda e clientes - com as mesmas ferramentas usadas pelas agências.'
   },
   'features': {
     en: 'Features',

@@ -144,7 +144,7 @@ const Diagnostic = () => {
       setStep('declined');
       return;
     }
-    await pushWolly(tx(lang, 'Primeiro: como você se descreve?', 'First things first — how would you describe yourself?'));
+    await pushWolly(tx(lang, 'Primeiro: como você se descreve?', 'First things first - how would you describe yourself?'));
     setStep('q1');
   };
 
@@ -355,7 +355,7 @@ const Diagnostic = () => {
     const v = value.trim();
     if (!optional && !v) return;
     if (v) pushUser(v);
-    else pushUser(tx(lang, '— pular —', '— skip —'));
+    else pushUser(tx(lang, '- pular -', '- skip -'));
     setLeadData((d) => ({ ...d, [field]: v }));
     setInputValue('');
     return v;
@@ -384,7 +384,7 @@ const Diagnostic = () => {
   const handleLeadEmail = async () => {
     const email = inputValue.trim();
     if (email) pushUser(email);
-    else pushUser(tx(lang, '— pular —', '— skip —'));
+    else pushUser(tx(lang, '- pular -', '- skip -'));
     setInputValue('');
 
     const finalLead = { ...leadData, email };
@@ -691,7 +691,7 @@ const SummaryCard = ({ data, lang }: { data: Answers; lang: Lang }) => {
     { label: tx(lang, 'Projetos por mês', 'Projects per month'), value: data.projetos_mes },
     { label: tx(lang, 'Contratos recorrentes', 'Recurring contracts'), value: data.contratos_recorrentes },
     { label: tx(lang, 'Faturamento', 'Revenue'), value: data.faturamento_label },
-    { label: tx(lang, 'Dores', 'Pain points'), value: data.dores_labels.join(', ') || '—' },
+    { label: tx(lang, 'Dores', 'Pain points'), value: data.dores_labels.join(', ') || '-' },
     { label: tx(lang, 'Controle atual', 'Current management'), value: data.controle_atual_label },
   ];
   return (
@@ -699,7 +699,7 @@ const SummaryCard = ({ data, lang }: { data: Answers; lang: Lang }) => {
       {rows.map((r, i) => (
         <div key={i} className="flex justify-between gap-3 text-sm">
           <span className="text-gray-400">{r.label}</span>
-          <span className="text-gray-100 font-medium text-right">{r.value || '—'}</span>
+          <span className="text-gray-100 font-medium text-right">{r.value || '-'}</span>
         </div>
       ))}
     </div>
@@ -801,13 +801,13 @@ function buildDiagnosis(a: Answers, lang: Lang, t: (key: string) => string) {
   let risks: string[] = [];
   if (ctrl === 'notes' || ctrl === 'none' || ctrl === 'unknown') {
     risks = [
-      tx(lang, 'Sem sistema formal, prazos de renovação e cobrança escapam fácil — em média 15–20% do faturamento somem sem você perceber.', 'Without a formal system, renewals and invoices slip through — on average 15–20% of revenue quietly disappears.'),
+      tx(lang, 'Sem sistema formal, prazos de renovação e cobrança escapam fácil - em média 15–20% do faturamento somem sem você perceber.', 'Without a formal system, renewals and invoices slip through - on average 15–20% of revenue quietly disappears.'),
       tx(lang, 'Sem histórico estruturado por cliente, cada negociação recomeça do zero.', "Without structured history per client, every negotiation starts from scratch."),
     ];
   } else if (ctrl === 'spreadsheet') {
     risks = [
       tx(lang, 'Planilhas exigem que VOCÊ lembre de olhar. Com esse volume, o erro humano é só questão de tempo.', 'Spreadsheets rely on YOU remembering to check. At this volume, human error is just a matter of time.'),
-      tx(lang, 'Não há lembretes automáticos nem alerta de contrato vencendo — você sempre joga no defensivo.', 'There are no automatic reminders or contract-expiry alerts — you always play defense.'),
+      tx(lang, 'Não há lembretes automáticos nem alerta de contrato vencendo - você sempre joga no defensivo.', 'There are no automatic reminders or contract-expiry alerts - you always play defense.'),
     ];
   } else if (ctrl === 'other_app') {
     risks = [
@@ -825,8 +825,8 @@ function buildDiagnosis(a: Answers, lang: Lang, t: (key: string) => string) {
     plan = 'Studio';
     planKey = 'studio-price';
     planReason = tx(lang,
-      'Time maior, múltiplos clientes e contratos recorrentes pedem visão consolidada e permissões por papel — exatamente o que o Studio entrega.',
-      'A larger team, multiple clients and recurring contracts call for consolidated visibility and role-based permissions — exactly what Studio delivers.'
+      'Time maior, múltiplos clientes e contratos recorrentes pedem visão consolidada e permissões por papel - exatamente o que o Studio entrega.',
+      'A larger team, multiple clients and recurring contracts call for consolidated visibility and role-based permissions - exactly what Studio delivers.'
     );
   } else if (fat === '15to30k' || isSmallAgency || recur >= 3) {
     plan = 'Standard';
@@ -839,8 +839,8 @@ function buildDiagnosis(a: Answers, lang: Lang, t: (key: string) => string) {
     plan = 'Solo';
     planKey = 'solo-price';
     planReason = tx(lang,
-      'Pra começar com o pé direito e organizar o essencial, o Solo já te dá o básico bem feito — sem custo no primeiro momento.',
-      'To start the right way and organize the essentials, Solo gives you a solid foundation — at no cost to begin with.'
+      'Pra começar com o pé direito e organizar o essencial, o Solo já te dá o básico bem feito - sem custo no primeiro momento.',
+      'To start the right way and organize the essentials, Solo gives you a solid foundation - at no cost to begin with.'
     );
   }
 

@@ -38,7 +38,7 @@ export const PT_SLUGS: Record<string, string> = {
   '/diagnostic': '/diagnostico',
   '/privacy': '/privacidade',
   '/terms': '/termos',
-  // Landing pages — EN canonical keys map to PT slugs.
+  // Landing pages - EN canonical keys map to PT slugs.
   '/hourly-rate-calculator': '/calculadora-valor-hora',
   '/pricing-your-services': '/precificar-servicos',
 };
@@ -96,7 +96,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (!path.startsWith('/')) path = '/' + path;
     if (language === 'en') {
       if (path === '/') return '/en';
-      // Caller may pass an EN canonical key — already English, no rewrite.
+      // Caller may pass an EN canonical key - already English, no rewrite.
       return '/en' + path;
     }
     // PT: translate known EN slugs to their Portuguese equivalents.

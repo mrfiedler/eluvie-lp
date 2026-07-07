@@ -10,7 +10,7 @@ const META = {
   'pt-BR': {
     title: 'Eluvie - Plataforma financeira para agências, social media e estúdios criativos',
     description:
-      'A Eluvie é a plataforma financeira para agências de marketing, profissionais de social media e estúdios de design — e também para freelancers criativos. Simplifique fluxo de caixa, clientes, propostas e assinaturas.',
+      'A Eluvie é a plataforma financeira para agências de marketing, profissionais de social media e estúdios de design - e também para freelancers criativos. Simplifique fluxo de caixa, clientes, propostas e assinaturas.',
     keywords:
       'gestão financeira para agências de marketing, gestão financeira para social media, gestão financeira para estúdios de design, agências criativas, social media, estúdios criativos, freelancer criativo, controle financeiro, contratos, assinaturas, recorrência, fluxo de caixa',
     locale: 'pt_BR',
@@ -19,7 +19,7 @@ const META = {
   en: {
     title: 'Eluvie - Financial platform for marketing agencies, social media and creative studios',
     description:
-      'Eluvie is the financial platform for marketing agencies, social media professionals and design studios — and creative freelancers too. Simplify cash flow, clients, proposals and subscriptions.',
+      'Eluvie is the financial platform for marketing agencies, social media professionals and design studios - and creative freelancers too. Simplify cash flow, clients, proposals and subscriptions.',
     keywords:
       'financial management for marketing agencies, financial management for social media, financial management for design studios, creative agencies, social media professionals, creative studios, creative freelancer, contracts, subscriptions, recurring revenue, cash flow',
     locale: 'en_US',
@@ -31,12 +31,12 @@ const ROUTE_META: Record<string, Record<'pt-BR' | 'en', { title: string; descrip
   '/': {
     'pt-BR': {
       title: 'Eluvie - Plataforma financeira para agências, social media e estúdios criativos',
-      description: 'A Eluvie ajuda agências de marketing, profissionais de social media e estúdios de design — e também freelancers criativos — a controlar finanças, clientes, propostas, contratos e assinaturas em um só lugar.',
+      description: 'A Eluvie ajuda agências de marketing, profissionais de social media e estúdios de design - e também freelancers criativos - a controlar finanças, clientes, propostas, contratos e assinaturas em um só lugar.',
       keywords: 'gestão financeira para agências de marketing, gestão financeira para social media, gestão financeira para estúdios de design, freelancer criativo, propostas, contratos, assinaturas',
     },
     en: {
       title: 'Eluvie - Financial platform for marketing agencies, social media and creative studios',
-      description: 'Eluvie helps marketing agencies, social media professionals and design studios — and creative freelancers too — manage finances, clients, proposals, contracts and subscriptions in one place.',
+      description: 'Eluvie helps marketing agencies, social media professionals and design studios - and creative freelancers too - manage finances, clients, proposals, contracts and subscriptions in one place.',
       keywords: 'financial management for marketing agencies, financial management for social media, financial management for design studios, creative freelancer, proposals, contracts, subscriptions',
     },
   },
