@@ -87,12 +87,12 @@ const defaultContent: AboutContent = {
   values_content: {
     en: [
       'We believe financial tools should be as simple and intuitive as the creative tools you already love.',
-      'No hidden fees, no confusing terms—just clear, visual representations of your financial state.',
+      'No hidden fees, no confusing terms-just clear, visual representations of your financial state.',
       'We want to give creative professionals the confidence to make informed business decisions.'
     ],
     'pt-BR': [
       'Acreditamos que as ferramentas financeiras devem ser tão simples e intuitivas quanto as ferramentas criativas que você já ama.',
-      'Sem taxas ocultas, sem termos confusos—apenas representações claras e visuais do seu estado financeiro.',
+      'Sem taxas ocultas, sem termos confusos-apenas representações claras e visuais do seu estado financeiro.',
       'Queremos dar aos profissionais criativos a confiança para tomar decisões de negócios informadas.'
     ]
   },
@@ -926,11 +926,11 @@ const Admin = () => {
                         <TableRow>
                           <TableCell className="font-medium">Solo</TableCell>
                           <TableCell>Free</TableCell>
-                          <TableCell>—</TableCell>
+                          <TableCell>-</TableCell>
                           <TableCell>Free</TableCell>
-                          <TableCell>—</TableCell>
+                          <TableCell>-</TableCell>
                           <TableCell>Free</TableCell>
-                          <TableCell>—</TableCell>
+                          <TableCell>-</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Standard</TableCell>
@@ -995,9 +995,9 @@ const Admin = () => {
                               <TableCell className="text-xs">{new Date(l.created_at).toLocaleString()}</TableCell>
                               <TableCell>{l.nome}</TableCell>
                               <TableCell>{l.whatsapp}</TableCell>
-                              <TableCell>{l.email || '—'}</TableCell>
-                              <TableCell>{l.tipo_negocio || '—'}</TableCell>
-                              <TableCell>{l.plano_recomendado || '—'}</TableCell>
+                              <TableCell>{l.email || '-'}</TableCell>
+                              <TableCell>{l.tipo_negocio || '-'}</TableCell>
+                              <TableCell>{l.plano_recomendado || '-'}</TableCell>
                               <TableCell>{l.idioma}</TableCell>
                             </TableRow>
                           ))}
