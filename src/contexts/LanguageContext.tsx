@@ -113,7 +113,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
           ? '/en'
           : '/en' + enCanonical
         : translateToPt(enCanonical);
-    navigate(target + location.search + location.hash);
+    // Intentionally drop location.hash: keeping it caused the page to
+    // auto-scroll to the previous section after switching language.
+    navigate(target + location.search);
   };
 
   const t = (key: string): string => {
