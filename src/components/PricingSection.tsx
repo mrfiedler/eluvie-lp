@@ -123,9 +123,9 @@ const PricingSection = () => {
                 {feature.available ? (
                   <Check className="h-5 w-5 text-brand-violet mr-3 mt-0.5 flex-shrink-0" />
                 ) : (
-                  <X className="h-5 w-5 text-gray-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <X className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" aria-hidden="true" />
                 )}
-                <span className={feature.available ? 'text-gray-300' : 'text-gray-500'}>
+               <span className={feature.available ? 'text-gray-300' : 'text-gray-400'}>
                   {t(feature.key)}
                 </span>
               </li>
@@ -157,7 +157,7 @@ const PricingSection = () => {
               <div className="min-h-[140px]">
                 <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-brand-gradient inline-block">{t('solo-plan')}</h3>
                 <div className="text-3xl font-bold mb-1">{t('solo-price')}</div>
-                <p className="text-xs text-gray-500 mb-2 invisible">placeholder</p>
+               <p className="text-xs text-gray-400 mb-2 invisible" aria-hidden="true">placeholder</p>
                 <p className="text-sm text-gray-400">{t('solo-for')}</p>
               </div>
               
@@ -181,7 +181,7 @@ const PricingSection = () => {
               <div className="min-h-[140px]">
                 <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-brand-gradient inline-block">{t('standard-plan')}</h3>
                 <div className="text-3xl font-bold mb-1">{t('standard-price')}</div>
-                <p className="text-xs text-gray-500 mb-2">{t('standard-annual-disclaimer')}</p>
+               <p className="text-xs text-gray-400 mb-2">{t('standard-annual-disclaimer')}</p>
                 <p className="text-sm text-gray-400">{t('standard-for')}</p>
               </div>
               
@@ -211,7 +211,7 @@ const PricingSection = () => {
               <div className="min-h-[140px]">
                 <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-brand-gradient inline-block">{t('studio-plan')}</h3>
                 <div className="text-3xl font-bold mb-1">{t('studio-price')}</div>
-                <p className="text-xs text-gray-500 mb-2">{t('studio-annual-disclaimer')}</p>
+               <p className="text-xs text-gray-400 mb-2">{t('studio-annual-disclaimer')}</p>
                 <p className="text-sm text-gray-400">{t('studio-for')}</p>
               </div>
               

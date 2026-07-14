@@ -117,10 +117,14 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-2">
             <div className="flex space-x-4 mb-4">
               <Link to={localPath('/')} className="flex items-center">
-                <img 
-                  src="/lovable-uploads/16dc7938-88ea-46da-9ce5-56e9b9900220.png"
-                  alt="Eluvie Logo" 
-                  className="h-8" 
+                <img
+                  src="/lovable-uploads/logo.webp"
+                  alt="Eluvie"
+                  className="h-8"
+                  width={80}
+                  height={32}
+                  loading="lazy"
+                  decoding="async"
                 />
               </Link>
               <DropdownMenu>

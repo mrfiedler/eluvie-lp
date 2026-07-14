@@ -49,7 +49,7 @@ const FeaturesSection = () => {
               <div className="bg-brand-violet/10 rounded-lg p-3 inline-block mb-4 border border-brand-purple/20">
                 {feature.icon}
               </div>
-              <h4 className="text-xl font-semibold mb-2 text-white">{feature.title}</h4>
+              <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
             </div>
           ))}
