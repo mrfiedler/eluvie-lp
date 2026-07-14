@@ -197,13 +197,7 @@ const BlogPostPage = () => {
 
                 {embedUrl && (
                   <div className="aspect-video w-full mb-8 rounded-xl overflow-hidden">
-                    <iframe
-                      src={embedUrl}
-                      title={post.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
+                    <BlogYouTubeEmbed embedUrl={embedUrl} title={post.title} />
                   </div>
                 )}
 
