@@ -37,6 +37,16 @@
     <meta name="twitter:image" content="https://www.eluvie.com/lovable-uploads/0da950c7-6e18-4083-8c37-72fc551f9225.png" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload the LCP image (hero dashboard) so it starts downloading
+         alongside the initial HTML instead of waiting for React to mount. -->
+    <link rel="preload" as="image" href="/lovable-uploads/dashboard-hero.webp" fetchpriority="high" />
+
+    <!-- Security: clickjacking + cross-origin protections that browsers honor via meta.
+         Full CSP / HSTS / COOP should be delivered as HTTP headers (see vercel.json). -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- Structured data: Organization (static fallback for AI/social crawlers that don't run JS) -->
     <script type="application/ld+json">
@@ -140,8 +150,15 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
     <!-- Add favicon -->
     <link rel="icon" href="/lovable-uploads/71cb45b1-b5a7-46d1-bb08-c0c67a64d10e.png" type="image/png">
     <!-- Early language-aware meta swap so crawlers snapshotting /en see English
