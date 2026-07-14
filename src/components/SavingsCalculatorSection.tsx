@@ -75,7 +75,12 @@ const SavingsCalculatorSection = () => {
                   ? 'Pense em: fluxo de caixa, gestão de contratos, orçamentos em andamento e controle de clientes recorrentes.'
                   : 'Think about: cash flow, contract management, open quotes and recurring client tracking.'}
               </p>
-              <Slider min={1} max={4} step={1} value={[processes]} onValueChange={(v) => setProcesses(v[0])} />
+              <Slider
+                min={1} max={4} step={1}
+                value={[processes]}
+                onValueChange={(v) => setProcesses(v[0])}
+                thumbLabel={isPt ? 'Número de processos financeiros' : 'Number of financial processes'}
+              />
             </div>
 
             <div>
@@ -85,7 +90,12 @@ const SavingsCalculatorSection = () => {
                 </label>
                 <span className="text-2xl font-bold text-[#d64ec2]">{hours}h</span>
               </div>
-              <Slider min={1} max={20} step={1} value={[hours]} onValueChange={(v) => setHours(v[0])} />
+              <Slider
+                min={1} max={20} step={1}
+                value={[hours]}
+                onValueChange={(v) => setHours(v[0])}
+                thumbLabel={isPt ? 'Horas por semana perdidas com gestão manual' : 'Hours per week lost to manual management'}
+              />
             </div>
 
             <div>
