@@ -4,9 +4,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import { APP_URL } from '@/lib/urls';
 import { useIsMobile } from '@/hooks/use-mobile';
-import avatar1 from '@/assets/avatar-1.png';
-import avatar2 from '@/assets/avatar-2.png';
-import avatar3 from '@/assets/avatar-3.png';
+import avatar1 from '@/assets/avatar-1.webp';
+import avatar2 from '@/assets/avatar-2.webp';
+import avatar3 from '@/assets/avatar-3.webp';
 
 const HeroSection = () => {
   const { t, localPath } = useLanguage();
@@ -58,9 +58,9 @@ const HeroSection = () => {
             </div>
             <div className="mt-8 flex items-center text-sm text-gray-400">
               <div className="flex -space-x-2 mr-3">
-                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar1} alt="User" width={32} height={32} />
-                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar2} alt="User" width={32} height={32} />
-                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar3} alt="User" width={32} height={32} />
+                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar1} alt="" width={32} height={32} loading="lazy" decoding="async" />
+                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar2} alt="" width={32} height={32} loading="lazy" decoding="async" />
+                <img className="h-8 w-8 rounded-full border-2 border-gray-800 object-cover" src={avatar3} alt="" width={32} height={32} loading="lazy" decoding="async" />
               </div>
               {t('trusted-by')}
             </div>
@@ -70,7 +70,15 @@ const HeroSection = () => {
             <div className="relative">
               {/* Dashboard mockup */}
               <div className="rounded-2xl shadow-2xl overflow-hidden border border-gray-700 animate-float">
-                <img src="/lovable-uploads/0da950c7-6e18-4083-8c37-72fc551f9225.png" alt="Eluvie Dashboard" className="w-full object-cover" />
+                <img
+                  src="/lovable-uploads/dashboard-hero.webp"
+                  alt="Painel da Eluvie mostrando controle de receitas, clientes e assinaturas"
+                  className="w-full object-cover"
+                  width={1400}
+                  height={679}
+                  fetchPriority="high"
+                  decoding="async"
+                />
               </div>
               
               {/* Floating notification card - updated for better mobile display */}
