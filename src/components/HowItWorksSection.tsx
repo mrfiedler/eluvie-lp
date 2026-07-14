@@ -2,26 +2,13 @@
 import { Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useEffect, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { useVideoUrls, convertToEmbedUrl } from '@/hooks/useVideoUrls';
+import YouTubeFacade from '@/components/YouTubeFacade';
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
-  const [videoUrl, setVideoUrl] = useState('https://www.youtube.com/embed/c3m8qhBUaDE?autoplay=1&mute=1&loop=1&playlist=c3m8qhBUaDE');
-  const { videoUrls } = useVideoUrls();
-  
-  useEffect(() => {
-    // Get stored video URL from videoUrls hook
-    if (videoUrls.homepage) {
-      setVideoUrl(videoUrls.homepage);
-    }
-  }, [videoUrls]);
-  
-  // Return the direct YouTube link for the Watch button
-  const getCleanVideoUrl = () => {
-    return 'https://www.youtube.com/watch?v=c3m8qhBUaDE';
-  };
+  const videoId = 'c3m8qhBUaDE';
+  const getCleanVideoUrl = () => `https://www.youtube.com/watch?v=${videoId}`;
 
   return (
     <section id="how-it-works" className="section bg-[#1a1a1a] py-20">
@@ -36,13 +23,11 @@ const HowItWorksSection = () => {
         <div className="relative max-w-4xl mx-auto mb-20" id="eluvie-video-section">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
             <AspectRatio ratio={16/9}>
-              <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/c3m8qhBUaDE?start=10&autoplay=1&mute=1&loop=1&playlist=c3m8qhBUaDE&rel=0"
-                title="Eluvie demonstration video" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
+              <YouTubeFacade
+                videoId={videoId}
+                title="Eluvie demonstration video"
+                params="autoplay=1&rel=0&start=10"
+                thumbnailQuality="maxresdefault"
               />
             </AspectRatio>
           </div>
