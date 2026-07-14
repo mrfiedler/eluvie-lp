@@ -92,10 +92,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
           <Link to={localPath('/')} className="flex items-center gap-2">
-            <img 
-              src="/lovable-uploads/16dc7938-88ea-46da-9ce5-56e9b9900220.png"
-              alt="Eluvie Logo" 
-              className="h-8" 
+            <img
+              src="/lovable-uploads/logo.webp"
+              alt="Eluvie"
+              className="h-8"
+              width={80}
+              height={32}
+              fetchPriority="high"
+              decoding="async"
             />
           </Link>
         </div>
@@ -154,9 +158,12 @@ const Navbar = () => {
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center space-x-3">
           <LangSwitcher compact />
-          <button 
-            className="text-gray-400 hover:text-white"
+          <button
+            className="text-gray-300 hover:text-white min-h-11 min-w-11 flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -165,7 +172,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#202020] shadow-lg pt-4 pb-6 px-4 border-t border-gray-700">
+        <div id="mobile-nav" className="md:hidden bg-[#202020] shadow-lg pt-4 pb-6 px-4 border-t border-gray-700">
           <div className="flex flex-col space-y-3">
             <a 
               href="#how-it-works" 
