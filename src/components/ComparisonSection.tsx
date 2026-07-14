@@ -26,10 +26,14 @@ const ComparisonSection = () => {
                   <th className="py-5 px-4 md:px-6 text-center">
                     <div className="flex flex-col items-center">
                        <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-2 overflow-hidden">
-                         <img 
-                           src="/lovable-uploads/f3d0ae54-8de0-4ae9-afab-e725eb4858f7.png" 
-                           alt="Eluvie Logo"
+                         <img
+                           src="/lovable-uploads/comparison.webp"
+                           alt="Eluvie"
                            className="w-full h-full object-cover"
+                           width={40}
+                           height={40}
+                           loading="lazy"
+                           decoding="async"
                          />
                       </div>
                       <span className="font-semibold text-white">Eluvie</span>
