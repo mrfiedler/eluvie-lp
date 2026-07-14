@@ -6,6 +6,38 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { getLocalizedBlogCategory, getYouTubeEmbedUrl } from '@/lib/blogCategories';
 import { ArrowLeft } from 'lucide-react';
+import YouTubeFacade from '@/components/YouTubeFacade';
+
+// Extract the YouTube video id from any of the URLs the CMS may return.
+const extractYouTubeId = (url: string): string | null => {
+  const patterns = [
+    /youtube\.com\/embed\/([\w-]{6,})/,
+    /youtube\.com\/watch\?v=([\w-]{6,})/,
+    /youtu\.be\/([\w-]{6,})/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+};
+
+const BlogYouTubeEmbed = ({ embedUrl, title }: { embedUrl: string; title: string }) => {
+  const id = extractYouTubeId(embedUrl);
+  if (!id) {
+    return (
+      <iframe
+        src={embedUrl}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="w-full h-full"
+      />
+    );
+  }
+  return <YouTubeFacade videoId={id} title={title} thumbnailQuality="hqdefault" />;
+};
 
 type BlogPost = {
   id: string;
