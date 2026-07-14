@@ -222,6 +222,10 @@ const BlogPostPage = () => {
                     <img
                       src={post.featured_image_url}
                       alt={post.title}
+                      width={1200}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -260,7 +264,10 @@ const BlogPostPage = () => {
                         <img
                           src={r.featured_image_url}
                           alt={r.title}
+                          width={600}
+                          height={338}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
