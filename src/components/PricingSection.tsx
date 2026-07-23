@@ -68,8 +68,7 @@ const PricingSection = () => {
     {
       titleKey: 'category-recurrence',
       features: [
-        { key: 'standard-subscriptions', available: true },
-        { key: 'standard-indicators', available: true },
+        { key: 'standard-recurrence-unavailable', available: false },
       ],
     },
     {
