@@ -87,27 +87,52 @@ const BlogPostPage = () => {
   useEffect(() => {
     let active = true;
     setLoading(true);
-    (async () => {
-      const { data } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('slug', slug!)
-        .eq('status', 'published')
-        .maybeSingle();
-      if (!active) return;
-      setPost((data as BlogPost) ?? null);
+    if (!slug) {
+      setPost(null);
+      setRelated([]);
       setLoading(false);
-
-      if (data) {
-        const { data: rel } = await supabase
+      return () => {
+        active = false;
+      };
+    }
+    (async () => {
+      try {
+        const { data, error } = await supabase
           .from('blog_posts')
-          .select('id, slug, language, title, short_description, category, featured_image_url, content, youtube_url, meta_title, meta_description, published_at')
-          .eq('language', (data as BlogPost).language)
+          .select('*')
+          .eq('slug', slug)
           .eq('status', 'published')
-          .eq('category', (data as BlogPost).category)
-          .neq('id', (data as BlogPost).id)
-          .limit(3);
-        if (active && rel) setRelated(rel as BlogPost[]);
+          .maybeSingle();
+        if (!active) return;
+        if (error) {
+          console.error('Failed to load blog post:', error);
+          setPost(null);
+          return;
+        }
+        setPost((data as BlogPost) ?? null);
+
+        if (data) {
+          const { data: rel, error: relError } = await supabase
+            .from('blog_posts')
+            .select('id, slug, language, title, short_description, category, featured_image_url, content, youtube_url, meta_title, meta_description, published_at')
+            .eq('language', (data as BlogPost).language)
+            .eq('status', 'published')
+            .eq('category', (data as BlogPost).category)
+            .neq('id', (data as BlogPost).id)
+            .limit(3);
+          if (active && rel) setRelated(rel as BlogPost[]);
+          if (relError) console.error('Failed to load related blog posts:', relError);
+        } else {
+          setRelated([]);
+        }
+      } catch (err) {
+        console.error('Failed to load blog post:', err);
+        if (active) {
+          setPost(null);
+          setRelated([]);
+        }
+      } finally {
+        if (active) setLoading(false);
       }
     })();
     return () => {
@@ -170,19 +195,6 @@ const BlogPostPage = () => {
       datePublished: post.published_at || undefined,
     });
   }, [post]);
-
-  // When a slug does not resolve to a published post, tell Googlebot to skip
-  // indexing so it does not log the page as a soft 404. Cleanup restores the
-  // sitewide "index, follow" directive when the user navigates away.
-  useEffect(() => {
-    if (loading || post) return;
-    const robots = document.head.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
-    const prev = robots?.getAttribute('content') ?? null;
-    if (robots) robots.setAttribute('content', 'noindex, nofollow');
-    return () => {
-      if (robots && prev !== null) robots.setAttribute('content', prev);
-    };
-  }, [loading, post]);
 
   const embedUrl = post?.youtube_url ? getYouTubeEmbedUrl(post.youtube_url) : null;
 

@@ -50,7 +50,19 @@
   ],
   "redirects": [
     { "source": "/blog/:slug(en-.+)", "destination": "/en/blog/:slug", "permanent": true },
-    { "source": "/en/blog/:slug(pt-.+)", "destination": "/blog/:slug", "permanent": true }
+    { "source": "/en/blog/:slug(pt-.+)", "destination": "/blog/:slug", "permanent": true },
+    { "source": "/about", "destination": "/sobre-nos", "permanent": true },
+    { "source": "/careers", "destination": "/carreiras", "permanent": true },
+    { "source": "/diagnostic", "destination": "/diagnostico", "permanent": true },
+    { "source": "/privacy", "destination": "/privacidade", "permanent": true },
+    { "source": "/terms", "destination": "/termos", "permanent": true },
+    { "source": "/hourly-rate-calculator", "destination": "/calculadora-valor-hora", "permanent": true },
+    { "source": "/pricing-your-services", "destination": "/precificar-servicos", "permanent": true },
+    { "source": "/en/calculadora-valor-hora", "destination": "/en/hourly-rate-calculator", "permanent": true },
+    { "source": "/en/precificar-servicos", "destination": "/en/pricing-your-services", "permanent": true },
+    { "source": "/coming-soon", "destination": "https://www.eluvie.app/", "permanent": true },
+    { "source": "/em-breve", "destination": "https://www.eluvie.app/", "permanent": true },
+    { "source": "/en/coming-soon", "destination": "https://www.eluvie.app/", "permanent": true }
   ],
   "rewrites": [
     {
@@ -60,6 +72,7 @@
       ],
       "destination": "/llms.txt"
     },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/admin", "destination": "/index.html" },
+    { "source": "/admin/:path*", "destination": "/index.html" }
   ]
 }

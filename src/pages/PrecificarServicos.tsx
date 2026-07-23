@@ -54,8 +54,10 @@ const PrecificarServicos = () => {
       'Como precificar serviços criativos: guia + diagnóstico grátis | Eluvie',
       'How to price creative services: guide + free diagnostic | Eluvie');
     const desc = tx(lang,
-      'Os 3 métodos de precificação para freelancers e agências criativas, com diagnóstico interativo gratuito para descobrir qual funciona para você.',
-      'The 3 pricing methods for creative freelancers and agencies, with a free interactive diagnostic to find what works for you.');
+      'Métodos de precificação para agências, social media, estúdios e criativos, com diagnóstico gratuito para descobrir qual funciona para você.',
+      'Pricing methods for agencies, social media professionals, studios and creatives, with a free diagnostic to find what works for you.');
+    const selfPath = lang === 'en' ? '/en/pricing-your-services' : PATH;
+    const selfUrl = SITE_URL + selfPath;
     document.title = title;
     document.documentElement.lang = lang === 'pt-BR' ? 'pt-BR' : 'en';
 
@@ -81,9 +83,9 @@ const PrecificarServicos = () => {
     setMeta('meta[name="description"]', 'content', desc);
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', desc);
-    setMeta('meta[property="og:url"]', 'content', SITE_URL + PATH);
+    setMeta('meta[property="og:url"]', 'content', selfUrl);
     setMeta('meta[property="og:type"]', 'content', 'article');
-    setLink('canonical', SITE_URL + PATH);
+    setLink('canonical', selfUrl);
 
     const data = {
       '@context': 'https://schema.org',
