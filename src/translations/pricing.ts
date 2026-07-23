@@ -29,44 +29,44 @@ const pricingTranslations = {
     'pt-BR': 'Standard'
   },
   'standard-price': {
-    en: '$73.50/mo',
-    'pt-BR': 'R$73,50/mês'
+    en: 'R$35.00/mo',
+    'pt-BR': 'R$35,00/mês'
   },
   'standard-price__USD': {
-    en: '$59/mo',
-    'pt-BR': 'US$ 59/mês'
+    en: '$28/mo',
+    'pt-BR': 'US$ 28/mês'
   },
   'standard-price__EUR': {
-    en: '€57/mo',
-    'pt-BR': '€57/mês'
+    en: '€27/mo',
+    'pt-BR': '€27/mês'
   },
   'standard-price__BRL': {
-    en: 'R$73.50/mo',
-    'pt-BR': 'R$73,50/mês'
+    en: 'R$35.00/mo',
+    'pt-BR': 'R$35,00/mês'
   },
   'standard-for': {
-    en: 'For teams that need to control sales and recurrence',
-    'pt-BR': 'Para times que precisam controlar vendas e recorrência'
+    en: 'For teams that need to control finances and part of the commercial side',
+    'pt-BR': 'Para times que precisam controlar o financeiro e parte do comercial'
   },
   'studio-plan': {
     en: 'Studio',
     'pt-BR': 'Studio'
   },
   'studio-price': {
-    en: '$129/mo',
-    'pt-BR': 'R$129/mês'
+    en: 'R$50.00/mo',
+    'pt-BR': 'R$50,00/mês'
   },
   'studio-price__USD': {
-    en: '$99/mo',
-    'pt-BR': 'US$ 99/mês'
+    en: '$40/mo',
+    'pt-BR': 'US$ 40/mês'
   },
   'studio-price__EUR': {
-    en: '€99/mo',
-    'pt-BR': '€99/mês'
+    en: '€39/mo',
+    'pt-BR': '€39/mês'
   },
   'studio-price__BRL': {
-    en: 'R$129/mo',
-    'pt-BR': 'R$129/mês'
+    en: 'R$50.00/mo',
+    'pt-BR': 'R$50,00/mês'
   },
   'studio-for': {
     en: 'For studios and agencies that need predictability',
@@ -159,6 +159,10 @@ const pricingTranslations = {
     en: 'Conversion and recurrence indicators',
     'pt-BR': 'Indicadores de conversão e recorrência'
   },
+  'standard-recurrence-unavailable': {
+    en: 'Not available',
+    'pt-BR': 'Não disponível'
+  },
   'standard-users': {
     en: '1 user',
     'pt-BR': '1 usuário'
@@ -197,44 +201,44 @@ const pricingTranslations = {
     'pt-BR': 'Indicadores de conversão e recorrência'
   },
   'studio-users': {
-    en: '2 users included with option to add team',
-    'pt-BR': '2 usuários incluídos e possibilidade de adicionar time'
+    en: '1 user',
+    'pt-BR': '1 usuário'
   },
   'all-plans-include': {
     en: 'All plans include secure cloud storage, regular updates, and support.',
     'pt-BR': 'Todos os planos incluem armazenamento seguro em nuvem, atualizações regulares e suporte.'
   },
   'standard-annual-disclaimer': {
-    en: '* billed annually, totaling $882.00',
-    'pt-BR': '* pagos anualmente, totalizando R$ 882,00'
+    en: '* billed annually, totaling R$420.00',
+    'pt-BR': '* pagos anualmente, totalizando R$ 420,00'
   },
   'standard-annual-disclaimer__USD': {
-    en: '* billed annually, totaling $708',
-    'pt-BR': '* pagos anualmente, totalizando US$ 708'
+    en: '* billed annually, totaling $336',
+    'pt-BR': '* pagos anualmente, totalizando US$ 336'
   },
   'standard-annual-disclaimer__EUR': {
-    en: '* billed annually, totaling €684',
-    'pt-BR': '* pagos anualmente, totalizando €684'
+    en: '* billed annually, totaling €324',
+    'pt-BR': '* pagos anualmente, totalizando €324'
   },
   'standard-annual-disclaimer__BRL': {
-    en: '* billed annually, totaling R$882.00',
-    'pt-BR': '* pagos anualmente, totalizando R$ 882,00'
+    en: '* billed annually, totaling R$420.00',
+    'pt-BR': '* pagos anualmente, totalizando R$ 420,00'
   },
   'studio-annual-disclaimer': {
-    en: '* billed annually, totaling $1,548.00',
-    'pt-BR': '* pagos anualmente, totalizando R$ 1.548,00'
+    en: '* billed annually, totaling R$600.00',
+    'pt-BR': '* pagos anualmente, totalizando R$ 600,00'
   },
   'studio-annual-disclaimer__USD': {
-    en: '* billed annually, totaling $1,188',
-    'pt-BR': '* pagos anualmente, totalizando US$ 1,188'
+    en: '* billed annually, totaling $480',
+    'pt-BR': '* pagos anualmente, totalizando US$ 480'
   },
   'studio-annual-disclaimer__EUR': {
-    en: '* billed annually, totaling €1,188',
-    'pt-BR': '* pagos anualmente, totalizando €1.188'
+    en: '* billed annually, totaling €468',
+    'pt-BR': '* pagos anualmente, totalizando €468'
   },
   'studio-annual-disclaimer__BRL': {
-    en: '* billed annually, totaling R$1,548.00',
-    'pt-BR': '* pagos anualmente, totalizando R$ 1.548,00'
+    en: '* billed annually, totaling R$600.00',
+    'pt-BR': '* pagos anualmente, totalizando R$ 600,00'
   }
 };
 
