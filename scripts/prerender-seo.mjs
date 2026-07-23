@@ -10,7 +10,7 @@ const DIST_DIR = resolve("dist");
 const SITEMAP_PATH = resolve("public/sitemap.xml");
 const INDEX_PATH = join(DIST_DIR, "index.html");
 const SUPABASE_URL = "https://ocqwdmqjtegyqjclfvfm.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInJlZiI6Im9jcXdkbXFqdGVneXFqY2xmdmZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyMTAzODUsImV4cCI6MjA2MTc4NjM4NX0.GM7THuWnszkmv0-OyeiSjKq42RcaoO09rNQxcw9sg-M";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jcXdkbXFqdGVneXFqY2xmdmZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyMTAzODUsImV4cCI6MjA2MTc4NjM4NX0.GM7THuWnszkmv0-OyeiSjKq42RcaoO09rNQxcw9sg-M";
 const FALLBACK_IMAGE = `${SITE_URL}/lovable-uploads/0da950c7-6e18-4083-8c37-72fc551f9225.png`;
 
 const STATIC_META = {
