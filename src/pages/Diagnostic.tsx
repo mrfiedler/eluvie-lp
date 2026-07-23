@@ -832,8 +832,8 @@ function buildDiagnosis(a: Answers, lang: Lang, t: (key: string) => string) {
     plan = 'Standard';
     planKey = 'standard-price';
     planReason = tx(lang,
-      'Volume bom de clientes e recorrência ativa: o Standard cobre cobranças automáticas, contratos e fluxo financeiro sem te sobrecarregar.',
-      'Healthy client volume and active recurrence: Standard covers automated billing, contracts and cash flow without overwhelming you.'
+      'Volume bom de clientes e operação em ritmo: o Standard cobre controle financeiro, contratos e conversão de orçamentos sem te sobrecarregar.',
+      'Healthy client volume and steady operation: Standard covers financial control, contracts and quote-to-revenue conversion without overwhelming you.'
     );
   } else {
     plan = 'Solo';
