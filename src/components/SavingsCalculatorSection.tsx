@@ -10,8 +10,8 @@ type PlanKey = 'solo' | 'standard' | 'studio';
 
 const PLAN_PRICES: Record<PlanKey, Record<Currency, number>> = {
   solo: { BRL: 0, USD: 0, EUR: 0 },
-  standard: { BRL: 73.5, USD: 59, EUR: 57 },
-  studio: { BRL: 129, USD: 99, EUR: 99 },
+  standard: { BRL: 35, USD: 28, EUR: 27 },
+  studio: { BRL: 50, USD: 40, EUR: 39 },
 };
 
 const HOURLY_RATE: Record<Currency, number> = { BRL: 80, USD: 15, EUR: 14 };
