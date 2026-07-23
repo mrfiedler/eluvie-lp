@@ -190,6 +190,22 @@ const setOrCreateMeta = (html, selectorRegex, tag) => {
   return html.replace(/<\/head>/i, `    ${tag}\n  </head>`);
 };
 
+const buildStaticRoot = (meta, entry) => {
+  const isArticle = meta.type === "article";
+  return [
+    '<div id="root">',
+    `  <main data-seo-prerender="true" style="min-height:100vh;background:#1a1a1a;color:#f5f5f5;font-family:Inter,Arial,sans-serif;padding:64px 24px;">`,
+    '    <section style="max-width:760px;margin:0 auto;">',
+    `      <p style="margin:0 0 16px;color:#d64ec2;font-size:14px;text-transform:uppercase;letter-spacing:.08em;">${isArticle ? "Eluvie Blog" : "Eluvie"}</p>`,
+    `      <h1 style="margin:0 0 20px;font-size:42px;line-height:1.1;">${escapeText(meta.title)}</h1>`,
+    `      <p style="margin:0 0 28px;color:#d1d5db;font-size:20px;line-height:1.6;">${escapeText(meta.description)}</p>`,
+    `      <a href="${escapeHtml(entry.loc)}" style="color:#d64ec2;">${escapeText(entry.loc)}</a>`,
+    '    </section>',
+    '  </main>',
+    '</div>',
+  ].join("\n");
+};
+
 const replaceHead = (baseHtml, meta, entry) => {
   const alternates = entry.alternates.length
     ? entry.alternates
@@ -217,6 +233,7 @@ const replaceHead = (baseHtml, meta, entry) => {
   html = setOrCreateMeta(html, /<meta name="twitter:title"[^>]*>/i, `<meta name="twitter:title" content="${escapeHtml(meta.title)}" />`);
   html = setOrCreateMeta(html, /<meta name="twitter:description"[^>]*>/i, `<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`);
   html = setOrCreateMeta(html, /<meta name="twitter:image"[^>]*>/i, `<meta name="twitter:image" content="${escapeHtml(meta.image || FALLBACK_IMAGE)}" />`);
+  html = html.replace(/<div id="root"><\/div>/i, buildStaticRoot(meta, entry));
 
   return html;
 };
