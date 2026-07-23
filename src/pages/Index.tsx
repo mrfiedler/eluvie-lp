@@ -36,6 +36,43 @@ const Index = () => {
     }
   }, [location]);
 
+  // Inject VideoObject JSON-LD only on the homepage (the only page that
+  // actually embeds the YouTube video). Global injection triggers GSC
+  // "Video is not on a watch page" on every unrelated route.
+  useEffect(() => {
+    const id = 'ld-video-home';
+    let el = document.getElementById(id) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.id = id;
+      el.type = 'application/ld+json';
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: 'Eluvie demonstration video',
+      description:
+        'Veja como a Eluvie organiza clientes, contratos, receitas e despesas em um único painel para profissionais criativos.',
+      thumbnailUrl: 'https://i.ytimg.com/vi/c3m8qhBUaDE/maxresdefault.jpg',
+      uploadDate: '2025-01-01T00:00:00+00:00',
+      contentUrl: 'https://www.youtube.com/watch?v=c3m8qhBUaDE',
+      embedUrl: 'https://www.youtube.com/embed/c3m8qhBUaDE',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Eluvie',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.eluvie.com/lovable-uploads/0da950c7-6e18-4083-8c37-72fc551f9225.png',
+        },
+      },
+    });
+    return () => {
+      const node = document.getElementById(id);
+      if (node) node.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-100 overflow-x-hidden">
       <Navbar />
