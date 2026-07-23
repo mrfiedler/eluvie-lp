@@ -934,21 +934,21 @@ const Admin = () => {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Standard</TableCell>
-                          <TableCell>R$ 73,50/mo</TableCell>
-                          <TableCell>R$ 882,00</TableCell>
-                          <TableCell>$59/mo</TableCell>
-                          <TableCell>$708</TableCell>
-                          <TableCell>€57/mo</TableCell>
-                          <TableCell>€684</TableCell>
+                          <TableCell>R$ 35,00/mo</TableCell>
+                          <TableCell>R$ 420,00</TableCell>
+                          <TableCell>$28/mo</TableCell>
+                          <TableCell>$336</TableCell>
+                          <TableCell>€27/mo</TableCell>
+                          <TableCell>€324</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Studio</TableCell>
-                          <TableCell>R$ 129,00/mo</TableCell>
-                          <TableCell>R$ 1.548,00</TableCell>
-                          <TableCell>$99/mo</TableCell>
-                          <TableCell>$1,188</TableCell>
-                          <TableCell>€99/mo</TableCell>
-                          <TableCell>€1,188</TableCell>
+                          <TableCell>R$ 50,00/mo</TableCell>
+                          <TableCell>R$ 600,00</TableCell>
+                          <TableCell>$40/mo</TableCell>
+                          <TableCell>$480</TableCell>
+                          <TableCell>€39/mo</TableCell>
+                          <TableCell>€468</TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>
