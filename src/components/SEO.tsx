@@ -213,9 +213,9 @@ const SEO = () => {
 
     // Structured data (Organization + SoftwareApplication with localized prices)
     const priceMap: Record<string, { standard: string; studio: string }> = {
-      BRL: { standard: '73.50', studio: '129' },
-      USD: { standard: '59', studio: '99' },
-      EUR: { standard: '57', studio: '99' },
+      BRL: { standard: '35.00', studio: '50.00' },
+      USD: { standard: '28', studio: '40' },
+      EUR: { standard: '27', studio: '39' },
     };
     const prices = priceMap[currency];
 
