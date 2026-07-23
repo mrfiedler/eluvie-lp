@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/fetch-sitemap.mjs",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender-seo.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"

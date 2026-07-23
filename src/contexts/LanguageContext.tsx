@@ -81,6 +81,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (autoRedirectDone.current) return;
     autoRedirectDone.current = true;
     if (location.pathname !== '/') return;
+    const ua = (typeof navigator !== 'undefined' && navigator.userAgent) || '';
+    const isCrawler = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|gptbot|claudebot|perplexitybot|applebot/i.test(ua);
+    if (isCrawler) return;
     const nav = (typeof navigator !== 'undefined' && (navigator.language || (navigator.languages && navigator.languages[0]))) || '';
     const isPtSpeaker = nav.toLowerCase().startsWith('pt');
     if (!isPtSpeaker) {

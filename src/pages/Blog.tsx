@@ -63,6 +63,7 @@ const Blog = () => {
         ? 'https://www.eluvie.com/en/blog'
         : 'https://www.eluvie.com/blog';
     canonical.setAttribute('href', blogUrl);
+    setMeta('meta[property="og:url"]', 'content', blogUrl);
 
     const setAlt = (hreflang: string, href: string) => {
       const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
@@ -94,7 +95,7 @@ const Blog = () => {
       inLanguage: language,
       url: blogUrl,
     });
-  }, [language, pageTitle, pageDescription, SITE_URL]);
+  }, [language, pageTitle, pageDescription]);
 
   useEffect(() => {
     let active = true;

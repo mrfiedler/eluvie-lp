@@ -109,11 +109,13 @@ const CalculadoraValorHora = () => {
   // SEO
   useEffect(() => {
     const title = tx(lang,
-      'Calculadora de valor/hora para freelancers | Eluvie',
-      'Hourly rate calculator for freelancers | Eluvie');
+      'Calculadora de valor/hora para criativos | Eluvie',
+      'Hourly rate calculator for creative businesses | Eluvie');
     const desc = tx(lang,
-      'Descubra quanto cobrar por hora com base nos seus custos reais. Calculadora gratuita da Eluvie para freelancers e criativos.',
-      'Find out what to charge per hour based on your real costs. Free calculator by Eluvie for freelancers and creatives.');
+      'Descubra quanto cobrar por hora com base nos custos reais da sua agência, estúdio ou operação criativa.',
+      'Find out what to charge per hour based on the real costs of your agency, studio or creative operation.');
+    const selfPath = lang === 'en' ? '/en/hourly-rate-calculator' : PATH;
+    const selfUrl = SITE_URL + selfPath;
     document.title = title;
 
     const setMeta = (sel: string, attr: string, val: string) => {
@@ -138,9 +140,9 @@ const CalculadoraValorHora = () => {
     setMeta('meta[name="description"]', 'content', desc);
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', desc);
-    setMeta('meta[property="og:url"]', 'content', SITE_URL + PATH);
+    setMeta('meta[property="og:url"]', 'content', selfUrl);
     setMeta('meta[property="og:type"]', 'content', 'website');
-    setLink('canonical', SITE_URL + PATH);
+    setLink('canonical', selfUrl);
 
     // FAQ JSON-LD
     const faqs = getFaqs(lang);
